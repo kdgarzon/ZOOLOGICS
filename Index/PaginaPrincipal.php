@@ -13,7 +13,7 @@
     <header>
         <nav class="Barra_Navegacion">
             <div class="logotipo">
-                <img src="../Imagenes/Iconos/tucan.png" alt="Tucan" width="70px" height="70px">
+                <img src="../Imagenes/Iconos/tucan.png" alt="Tucan" width="70px" height="70px" >
                 <h1 class="titulo_logotipo">Zoologics</h1>
             </div>
             <div class="items">
@@ -42,8 +42,10 @@
                     Es uno de los pocos zoos que tuvo en su momento un Panda gigante.
                     En este sitio se grabó el primer video de YouTube.
                 </p>
-                <img src="../Imagenes/San Diego/2.jpg" class="d-block w-100" alt="...">
-                <a href="">VISITAR PÁGINA</a>
+                <img src="../Imagenes/San Diego/2.jpg" class="d-block w-100" alt="..." id="imagen_tarjeta">
+                <div class="btnVisitar">
+                    <a href="https://sandiegozoowildlifealliance.org">VISITAR PÁGINA</a>
+                </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
                 <h3 class="tituloUno">ZOOLOGICO</h3>
@@ -52,8 +54,10 @@
                     Es el único parque de animales acuáticos de toda Asia. Es el primer parque
                     de vida silvestre del mundo en el que conocerás animales que están activos durante la noche.
                 </p>
-                <img src="../Imagenes/San Diego/3.jpg" class="d-block w-100" alt="...">
-                <a href="">VISITAR PÁGINA</a>
+                <img src="../Imagenes/San Diego/3.jpg" class="d-block w-100" alt="..." id="imagen_tarjeta">
+                <div class="btnVisitar">
+                    <a href="https://www.mandai.com/en/singapore-zoo.html">VISITAR PÁGINA</a>
+                </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
                 <h3 class="tituloUno">ZOOLOGICO</h3>
@@ -62,8 +66,10 @@
                     Es el zoológico más grande de Cánada. Hogar de más de 16.000 animales, ofrece una excelente
                     combinación de actividades educativas y de entretenimiento para personas de todas las edades.
                 </p>
-                <img src="../Imagenes/San Diego/7.jpg" class="d-block w-100" alt="...">
-                <a href="">VISITAR PÁGINA</a>
+                <img src="../Imagenes/San Diego/7.jpg" class="d-block w-100" alt="..." id="imagen_tarjeta">
+                <div class="btnVisitar">
+                    <a href="https://www.torontozoo.com">VISITAR PÁGINA</a>
+                </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
                 <h3 class="tituloUno">ZOOLOGICO</h3>
@@ -72,8 +78,10 @@
                     Ofrece al público la experiencia de asistir al Museo de Papagayos en Porcelana, creados con
                     delicadeza y reproducidos hasta el mínimo detalle.
                 </p>
-                <img src="../Imagenes/San Diego/4.jpg" class="d-block w-100" alt="...">
-                <a href="">VISITAR PÁGINA</a>
+                <img src="../Imagenes/San Diego/4.jpg" class="d-block w-100" alt="..." id="imagen_tarjeta">
+                <div class="btnVisitar">
+                    <a href="https://www.loroparque.com">VISITAR PÁGINA</a>
+                </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
                 <h3 class="tituloUno">ZOOLOGICO</h3>
@@ -82,8 +90,10 @@
                     Considerado el mejor zoológico de Europa y el más antiguo del mundo. Ubicado en los terrenos 
                     del famoso Palacio de Schonbrunn en Viena.
                 </p>
-                <img src="../Imagenes/San Diego/6.jpg" class="d-block w-100" alt="...">
-                <a href="">VISITAR PÁGINA</a>
+                <img src="../Imagenes/San Diego/6.jpg" class="d-block w-100" alt="..." id="imagen_tarjeta">
+                <div class="btnVisitar">
+                    <a href="https://www.zoovienna.at/en/">VISITAR PÁGINA</a>
+                </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
                 <h3 class="tituloUno">ZOOLOGICO</h3>
@@ -92,8 +102,10 @@
                     Tuvó el primer acuario público del mundo y fue utilizado en la filmación de Harry Potter y la
                     Piedra Filosofal.
                 </p>
-                <img src="../Imagenes/San Diego/8.jpg" class="d-block w-100" alt="...">
-                <a href="">VISITAR PÁGINA</a>
+                <img src="../Imagenes/San Diego/8.jpg" class="d-block w-100" alt="..." id="imagen_tarjeta">
+                <div class="btnVisitar">
+                    <a href="https://www.londonzoo.org">VISITAR PÁGINA</a>
+                </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
                 <h3 class="tituloUno">ZOOLOGICO</h3>
@@ -102,8 +114,10 @@
                     Es el que cuenta con un mayor número de especies en todo el mundo. Entre todas sus especies, se
                     encuentran los únicos osos pandas gigantes de toda Alemania.
                 </p>
-                <img src="../Imagenes/San Diego/5.jpg" class="d-block w-100" alt="...">
-                <a href="">VISITAR PÁGINA</a>
+                <img src="../Imagenes/San Diego/5.jpg" class="d-block w-100" alt="..." id="imagen_tarjeta">
+                <div class="btnVisitar">
+                    <a href="https://www.zoo-berlin.de/es/">VISITAR PÁGINA</a>
+                </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
                 <h3 class="tituloUno">ZOOLOGICO</h3>
@@ -113,8 +127,10 @@
                     650 especies de alrededor de todo el mundo. Fue uno de los primeros en reducir el uso de las jaulas, 
                     aprovechando su extensión.
                 </p>
-                <img src="../Imagenes/San Diego/9.jpg" class="d-block w-100" alt="...">
-                <a href="">VISITAR PÁGINA</a>
+                <img src="../Imagenes/San Diego/9.jpg" class="d-block w-100" alt="..." id="imagen_tarjeta">
+                <div class="btnVisitar">
+                    <a href="https://bronxzoo.com">VISITAR PÁGINA</a>
+                </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
                 <h3 class="tituloUno">ZOOLOGICO</h3>
@@ -124,8 +140,10 @@
                     de la vida silvestre en cautiverio, varias especies han sido el foco de estudios específicos para
                     salvarguardar su existencia.
                 </p>
-                <img src="../Imagenes/San Diego/12.jpg" class="d-block w-100" alt="...">
-                <a href="">VISITAR PÁGINA</a>
+                <img src="../Imagenes/San Diego/12.jpg" class="d-block w-100" alt="..." id="imagen_tarjeta">
+                <div class="btnVisitar">
+                    <a href="https://www.chapultepec.com.mx/visita/1">VISITAR PÁGINA</a>
+                </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
                 <h3 class="tituloUno">ACUARIO</h3>
@@ -134,8 +152,10 @@
                     El encanto particular de este zoológico se debe a su ubicación, donde el Océano índico y el Océano
                     Atlántico se encuentran. Se puede bucear con tiburones de dientes irregulares en el Acuario.
                 </p>
-                <img src="../Imagenes/San Diego/1.jpg" class="d-block w-100" alt="...">
-                <a href="">VISITAR PÁGINA</a>
+                <img src="../Imagenes/San Diego/1.jpg" class="d-block w-100" alt="..." id="imagen_tarjeta">
+                <div class="btnVisitar">
+                    <a href="https://www.aquarium.co.za">VISITAR PÁGINA</a>
+                </div>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
