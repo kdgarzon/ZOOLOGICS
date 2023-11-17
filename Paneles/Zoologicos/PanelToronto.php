@@ -4,9 +4,9 @@
     if(!isset($_SESSION['txtUser'])){
         echo '<script>
                 alert("Por favor debes iniciar sesión");
-                window.location = "../../Login/Login.html";
+                window.location = "../../Login/login.php";
             </script>';
-        header('location: ../../Login/Login.html');
+        header('location: ../../Login/login.php');
         session_destroy();
         die();
     }

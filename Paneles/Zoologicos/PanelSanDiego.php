@@ -4,9 +4,9 @@
     if(!isset($_SESSION['txtUser'])){
         echo '<script>
                 alert("Por favor debes iniciar sesión");
-                window.location = "../../Login/Login.html";
+                window.location = "../../Login/login.php";
             </script>';
-        header('location: ../../Login/Login.html');
+        header('location: ../../Login/login.php');
         session_destroy();
         die();
     }
@@ -22,7 +22,10 @@
     <title>Inicio</title>
 </head>
 <body>
-    <h1>Panel del Zoológico de San Diego</h1>
+    <h1 class="titulo_imagen">Zoológico de San Diego</h1>
+    <h3 class="apartado">
+        Situado en San Diego, California, fue creado en 1915 y cuenta con unos 4000 ejemplares de más de 800 especies distintas.
+    </h3>
     <a href="../../config/CerrarSesion.php">Cerrar sesión</a>
     <footer>
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
