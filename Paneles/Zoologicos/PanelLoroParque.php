@@ -22,8 +22,160 @@
     <title>Inicio</title>
 </head>
 <body>
-    <h1>Panel del zoológico Loro Parque</h1>
-    <a href="../../config/CerrarSesion.php">Cerrar sesión</a>
+    <div class="barra_superior">
+        <img src="../../Imagenes/San Diego/Imagenes zoo/Loro Parque.jpg" alt="San Diego">
+        <div class="cont">
+            <div class="logo">
+                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
+                <h1 class="titulo_logotipo">Zoologics</h1>
+            </div>
+            <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable">
+        </div>
+        <div class="cont_dos">
+            <h1 class="titulo_imagen">Zoológico Loro Parque</h1>
+            <h3 class="apartado">
+                Más 100 especies animales reintroducidas con éxitos desde zoológicos a la vida silvestre.
+            </h3>
+        </div>
+    </div>
+    <div class="texto_cuerpo">
+        <h2 class="titulos_contenido_principal">BIENVENIDO AL ZOOLOGICO LORO PARQUE</h2>
+        <p class="parrafo">
+            El bienestar animal entendido de forma integral es nuestra máxima preocupación. 
+            Cuidamos de los animales que habitan en nuestro parque desde el amor y el respeto. 
+            Diseñamos planes específicos para cada especie y animal que está bajo nuestro cuidado, 
+            y lo hacemos desde los hallazgos biológicos obtenidos en zoológicos modernos y 
+            mediante la aplicación de los conocimientos veterinarios a la fauna silvestre.
+        </p>
+        <h2 class="titulos_contenido_uno">PRINCIPIOS LORO PARQUE</h2>
+        <div class="numeral">
+            <div class="numero">1</div>
+            <p>Libertad de alimentación e hidratación</p>
+        </div>
+        <div class="numeral">
+            <div class="numero">2</div>
+            <p>Libertad de ambiente apropiado</p>
+        </div>
+        <div class="numeral">
+            <div class="numero">3</div>
+            <p>Libertad de buena salud</p>
+        </div>
+        <div class="numeral">
+            <div class="numero">4</div>
+            <p>Libertad de bienestar emocional</p>
+        </div>
+        <div class="numeral">
+            <div class="numero">5</div>
+            <p>Libertad para expresar su comportamiento natural</p>
+        </div>
+        <h2 class="titulos_contenido_uno">ACTIVIDADES DISPONIBLES</h2>
+        <div class="cards_actividades">
+            <div class="card">
+                <img src="../../Imagenes/Loro parque/card1.jpg" alt="" width="561px" height="283px">
+                <div class="texto_card">
+                    <h3 class="subtitulo">Planet Penguin</h3>
+                    <p class="txt">
+                        Descubre la Antártida y siente el clima polar en el mejor pingüinario del mundo. 
+                        Nieve de verdad, un enorme iceberg y cientos de pingüinos te esperan en este hábitat 
+                        de hielo.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../Imagenes/Loro parque/card2.jpg" alt="" width="561px" height="283px">
+                <div class="texto_card">
+                    <h3 class="subtitulo">Katandra Treetops</h3>
+                    <p class="txt">
+                        Entre puentes colgantes y abundante vegetación, podrás encontrarte cara a cara con 
+                        los loris arcoíris o sentir el aire que desplazan las acrobacias aéreas de una gran 
+                        variedad de aves de Australasia.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../Imagenes/Loro parque/card3.jpg" alt="" width="561px" height="283px">
+                <div class="texto_card">
+                    <h3 class="subtitulo">Oceanía</h3>
+                    <p class="txt">
+                        La innovadora exhibición permite ver a las aves de forma directa sin barreras 
+                        visuales. Visita un espacio donde una gran variedad de especies de Oceanía muestra 
+                        su máximo esplendor.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../Imagenes/Loro parque/card4.jpg" alt="" width="561px" height="283px">
+                <div class="texto_card">
+                    <h3 class="subtitulo">La Gruta</h3>
+                    <p class="txt">
+                        Observa de forma única como se comportan estas criaturas nocturnas desde el interior 
+                        de su hábitat y aprende intrigantes curiosidades sobre esta especie fascinante.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../Imagenes/Loro parque/card5.jpg" alt="" width="561px" height="283px">
+                <div class="texto_card">
+                    <h3 class="subtitulo">Acuario</h3>
+                    <p class="txt">
+                        Sumérgete en un mundo acuático sin igual y en el hogar de miles de diferentes especies 
+                        de peces y corales. También encontrarás un sorprendente túnel de tiburones a través 
+                        del cual estarás muy cerca de uno de los depredadores más impresionantes de la 
+                        naturaleza.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../Imagenes/Loro parque/card6.jpg" alt="" width="561px" height="283px">
+                <div class="texto_card">
+                    <h3 class="subtitulo">AquaViva</h3>
+                    <p class="txt">
+                        Con una apariencia sobrenatural, estas curiosas medusas de sorprendentes y elegantes 
+                        formas son las protagonistas indiscutidas de una exhibición diseñada para descubrir 
+                        los detalles más especiales de estas fascinantes criaturas que habitan en todos los 
+                        mares de la tierra.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="galeria_animales">
+        <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
+        <div class="foto">
+            <img src="../../Imagenes/Loro parque/Orcas.jpg" alt="Orcas" width="290px" height="290px">
+            <a href="https://www.loroparque.com/ficha-animales-orcas/">Orcas</a>
+        </div>
+        <div class="foto">
+            <img src="../../Imagenes/Loro parque/nutrias.jpg" alt="Nutrias" width="290px" height="290px">
+            <a href="https://www.loroparque.com/ficha-animales-nutrias/">Nutrias</a>
+        </div>
+        <div class="foto">
+            <img src="../../Imagenes/Loro parque/perezoso.jpg" alt="Perezosos" width="290px" height="290px">
+            <a href="https://www.loroparque.com/ficha-animales-perezosos/">Perezosos</a>
+        </div>
+        <div class="foto">
+            <img src="../../Imagenes/Loro parque/capibara.jpg" alt="Capibara" width="290px" height="290px">
+            <a href="https://www.loroparque.com/ficha-animales-capibaras/">Capibara</a>
+        </div>
+        <div class="foto">
+            <img src="../../Imagenes/Loro parque/flamencos.jpg" alt="Flamencos" width="290px" height="290px">
+            <a href="https://www.loroparque.com/ficha-animales-flamencos/">Flamencos</a>
+        </div>
+        <div class="foto">
+            <img src="../../Imagenes/Loro parque/hipopotamo.jpg" alt="Hipopotamos" width="290px" height="290px">
+            <a href="https://www.loroparque.com/ficha-animales-hipopotamo-pigmeo/">Hipopotamos</a>
+        </div>
+        <div class="foto">
+            <img src="../../Imagenes/Loro parque/loros.jpg" alt="Loros" width="290px" height="290px">
+            <a href="https://www.loroparque.com/ficha-animales-loros/">Loros</a>
+        </div>
+        <div class="foto">
+            <img src="../../Imagenes/Loro parque/tiburones.jpg" alt="Tiburones" width="290px" height="290px">
+            <a href="https://www.loroparque.com/ficha-animales-tiburon-gris/">Tiburones</a>
+        </div>
+    </div>
+    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
+
     <footer>
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
     </footer>
