@@ -63,7 +63,7 @@
         </p>
         <div class="cards_actividades">
             <div class="card">
-                <img src="../../Imagenes/San Diego/islas del pacifico/ZOO.jpg" alt="">
+                <img src="../../Imagenes/San Diego/islas del pacifico/ZOO.jpg" alt="" width="561px" height="283px">
                 <div class="texto_card">
                     <h3 class="subtitulo">SAN DIEGO ZOO</h3>
                     <p class="txt">
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="../../Imagenes/San Diego/islas del pacifico/SAFARI.jpg" alt="">
+                <img src="../../Imagenes/San Diego/islas del pacifico/SAFARI.jpg" alt="" width="561px" height="283px">
                 <div class="texto_card">
                     <h3 class="subtitulo">SAN DIEGO SAFARI PARK</h3>
                     <p class="txt">
