@@ -20,15 +20,38 @@
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
     <link rel="stylesheet" href="../../Estilos/Paneles.css">
+    <link rel="stylesheet" href="../../Estilos/Principal.css">
     <title>Inicio</title>
 </head>
 <body class="body_Usuario">
+    <header>
+        <nav class="Barra_Navegacion">
+            <div class="logotipo">
+                <img src="../../Imagenes/Iconos/tucan.png" alt="Tucan" width="70px" height="70px" >
+                <h1 class="titulo_logotipo">Zoologics</h1>
+            </div>
+            <div class="items_zoo">
+                <a href="Inicio.php">Inicio</a>
+                <a href="">Informacion</a>
+                <a href="Informacion.php">Zoológico</a>
+                <a href="">Animales</a>
+                <a href="">Especies</a>
+                <a href="">Familias</a>
+                <a href="">Informes</a>
+            </div>
+            <div class="botones">
+                <div class="btn_ingresar">
+                    <img src="../../Imagenes/Iconos/cerrar-sesion.png" alt="" width="32px" height="32px">
+                    <a href="../../Index/PaginaPrincipal.php">Cerrar Sesion</a>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="panel_usuario">
-        <img src="../../Imagenes/Panel principal usuario/pavo real.jpg" alt="" class="fondo_paneles">
-        <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="" class="tresLineas">
-        <div class="bienvenida">
-            <h1 class="usu">BIENVENIDO A ZOOLOGICS</h1>
+        <img src="../../Imagenes/Panel principal zoologico/elefante.jpg" alt="" class="fondo_paneles">
+        <div class="bienvenida" id="b">
             <hr>
+            <h1 class="zoo">BIENVENIDO</h1>
         </div>
     </div>
     <footer>
