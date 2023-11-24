@@ -29,7 +29,7 @@
                 <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
                 <h1 class="titulo_logotipo">Zoologics</h1>
             </div>
-            <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable">
+            <img src="../../Imagenes/Iconos/TresLineasNegras.png" alt="Barra desplegable">
         </div>
         <div class="cont_dos">
             <h1 class="titulo_imagen">Zoológico de Schonbrunn</h1>
