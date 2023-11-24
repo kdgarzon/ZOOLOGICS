@@ -22,8 +22,94 @@
     <title>Inicio</title>
 </head>
 <body>
-    <h1>Panel del acuario Two Oceans</h1>
-    <a href="../../config/CerrarSesion.php">Cerrar sesión</a>
+<div class="barra_superior">
+        <img src="../../Imagenes/San Diego/Imagenes zoo/Two oceans.jpg" alt="San Diego">
+        <div class="cont">
+            <div class="logo">
+                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
+                <h1 class="titulo_logotipo">Zoologics</h1>
+            </div>
+            <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable">
+        </div>
+        <div class="cont_dos">
+            <h1 class="titulo_imagen">Acuario Two Oceans</h1>
+            <h3 class="apartado">
+                El Acuario Two Oceans está diseñado para mostrar la diversidad de vida marina de la costa sudafricana
+            </h3>
+        </div>
+    </div>
+    <div class="texto_cuerpo">
+        <h2 class="titulos_contenido_principal">BIENVENIDO AL ACUARIO TWO OCEANS</h2>
+        <p class="parrafo">
+            Este acuario tiene una fuerte ética de conservación, que proporciona apoyo para la 
+            conservación de los tiburones, la rehabilitación de los pingüinos y tortugas y ayuda 
+            a liberar a las focas que a veces se quedan enredadas en tiras de plástico e hilos de 
+            pesca.
+        </p>
+        <h2 class="titulos_contenido_uno">ACTIVIDADES DISPONIBLES</h2>
+        <p class="parrafo">
+            Los visitantes pueden pasar felizmente una tarde explorando el espectáculo de primera 
+            clase, que entre ellos se encuentra una gran pecera de depredadores con tiburones 
+            mellados (o ragged-tooth), un bosque de algas marinas (uno de los únicos tres que 
+            quedan en el mundo), las galerías de los océanos Índico y Atlántico y una pantalla de 
+            litoral que alberga pingüinos africanos y saltadores.
+        </p>
+        <p class="parrafo">
+            Los visitantes también pueden organizar una sesión de buceo con los tiburones mellados 
+            en la Exposición de depredadores o en la de Bosque de Algas marinas, por lo que debe 
+            informar a sus clientes que necesitan una licencia de buceo para esta actividad.
+        </p>
+        <p class="parrafo">
+            Los clientes también pueden cenar con tranquilidad en el restaurante adyacente, the 
+            Shoreline Café, que sirve sólo productos del mar sostenibles y que, en consecuencia, 
+            fue el primer restaurante de África que recibió el certificado del Consejo de 
+            Administración Marino (Marine Stewardship Council).
+        </p>
+        <div class="cards_actividades">
+            <div class="card">
+                <img src="../../Imagenes/Two Oceans/card1.jpg" alt="" width="561px" height="283px">
+                <div class="texto_card">
+                    <h3 class="subtitulo">Exposición de depredadores</h3>
+                    <p class="txt">
+                        Rompe tus ideas erróneas sobre los tiburones en la exhibición de tiburones de la 
+                        Fundación Save Our Seas , conoce a los tiburones camuflados de la exhibición del 
+                        bosque de algas y descubre los pequeños tiburones y sus huevos.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../Imagenes/Two Oceans/card2.jpg" alt="" width="561px" height="283px">
+                <div class="texto_card">
+                    <h3 class="subtitulo">Bosque de Algas marinas</h3>
+                    <p class="txt">
+                        Hay aproximadamente 30 especies de algas en todo el mundo, y los bosques de algas 
+                        cubren aproximadamente el 25% de las costas del mundo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="galeria_animales">
+        <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
+        <div class="foto">
+            <img src="../../Imagenes/Two Oceans/morenas.jpeg" alt="Morenas" width="290px" height="290px">
+            <a href="https://www.aquarium.co.za/animals/moray-eels">Morenas</a>
+        </div>
+        <div class="foto">
+            <img src="../../Imagenes/Two Oceans/Pulpos.jpg" alt="Pulpos" width="290px" height="290px">
+            <a href="https://www.aquarium.co.za/animals/octopus">Pulpos</a>
+        </div>
+        <div class="foto">
+            <img src="../../Imagenes/Two Oceans/Tortugas.jpg" alt="Tortugas" width="290px" height="290px">
+            <a href="https://www.aquarium.co.za/animals/turtles">Tortugas</a>
+        </div>
+        <div class="foto">
+            <img src="../../Imagenes/Two Oceans/Medusas.jpg" alt="Medusas" width="290px" height="290px">
+            <a href="https://www.aquarium.co.za/animals/jellyfish">Medusas</a>
+        </div>
+    </div>
+    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
+
     <footer>
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
     </footer>
