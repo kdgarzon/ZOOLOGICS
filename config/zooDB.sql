@@ -28,9 +28,9 @@ CREATE TABLE Usuario(
     Correo varchar(40) NOT NULL,
     User varchar(20) NOT NULL,
     Pass  varchar(50) NOT NULL,
-    ID_Rol int(3) NOT NULL,
+    ID_Rol int(3),
     PRIMARY KEY (ID),
-    FOREIGN KEY (ID_Rol) REFERENCES Rol(ID)
+    FOREIGN KEY (ID_Rol) REFERENCES Rol(ID) ON UPDATE CASCADE ON DELETE SET NULL
 ) AUTO_INCREMENT = 1001;
 
 INSERT INTO Usuario (Identificacion, Nombre, Apellido, Correo, User, Pass, ID_Rol) VALUES (1010526347, 'Sofia', 'Goméz', 'sogomez@gmail.com','sogomez', 'sg123', 1);/*1001*/
@@ -65,17 +65,17 @@ INSERT INTO Preguntas (Pregunta) VALUES ('¿En qué ciudad vive su hermano más 
 CREATE TABLE Respuestas(
     ID int(4) NOT NULL AUTO_INCREMENT,
     ID_Usuario int(4) NOT NULL,
-    ID_primeraPregunta int(3) NOT NULL,
+    ID_primeraPregunta int(3),
     Respuesta_uno varchar(30) NOT NULL,
-    ID_segundaPregunta int(3) NOT NULL,
+    ID_segundaPregunta int(3),
     Respuesta_dos varchar(30) NOT NULL,
-    ID_terceraPregunta int(3) NOT NULL,
+    ID_terceraPregunta int(3),
     Respuesta_tres varchar(30) NOT NULL,
     PRIMARY KEY (ID),
-    FOREIGN KEY (ID_Usuario) REFERENCES Usuario (ID),
-    FOREIGN KEY (ID_primeraPregunta) REFERENCES Preguntas (ID),
-    FOREIGN KEY (ID_segundaPregunta) REFERENCES Preguntas (ID),
-    FOREIGN KEY (ID_terceraPregunta) REFERENCES Preguntas (ID)
+    FOREIGN KEY (ID_Usuario) REFERENCES Usuario (ID) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (ID_primeraPregunta) REFERENCES Preguntas (ID) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (ID_segundaPregunta) REFERENCES Preguntas (ID) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (ID_terceraPregunta) REFERENCES Preguntas (ID) ON UPDATE CASCADE ON DELETE SET NULL
 )AUTO_INCREMENT = 5001;
 
 INSERT INTO Respuestas (ID_Usuario, ID_primeraPregunta, Respuesta_uno, ID_segundaPregunta, Respuesta_dos, ID_terceraPregunta, Respuesta_tres)
@@ -240,13 +240,13 @@ INSERT INTO Pais (Pais) VALUES ('Vietnam'); /*370*/
 CREATE TABLE Zoologico(
     ID int(3) NOT NULL AUTO_INCREMENT,
     Nombre varchar(60) NOT NULL,
-    ID_Ciudad int(3) NOT NULL,
-    ID_Pais int(3) NOT NULL,
+    ID_Ciudad int(3),
+    ID_Pais int(3),
     Tamanio int(10) NOT NULL,
     Presupuesto_anual float(10) NOT NULL,
     PRIMARY KEY (ID),
-    FOREIGN KEY (ID_Ciudad) REFERENCES Ciudad(ID),
-    FOREIGN KEY (ID_Pais) REFERENCES Pais(ID)
+    FOREIGN KEY (ID_Ciudad) REFERENCES Ciudad(ID) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (ID_Pais) REFERENCES Pais(ID) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 INSERT INTO Zoologico (Nombre, ID_Ciudad, ID_Pais, Tamanio, Presupuesto_anual) VALUES ('Zoologico de San Diego', 236, 325, 7284342, 407000000);/*1*/
@@ -456,15 +456,15 @@ CREATE TABLE Especie(
     ID int(5) NOT NULL AUTO_INCREMENT,
     Nombre_vulgar varchar(35) NOT NULL,
     Nombre_cientifico varchar(35) NOT NULL,
-    ID_NomEspecie int(5) NOT NULL,
-    ID_Familia int(5) NOT NULL,
-    ID_Extincion int(3) NOT NULL,
-    ID_Zoo int(3) NOT NULL,
+    ID_NomEspecie int(5),
+    ID_Familia int(5),
+    ID_Extincion int(3),
+    ID_Zoo int(3),
     PRIMARY KEY (ID),
-    FOREIGN KEY (ID_NomEspecie) REFERENCES Nombre_Especie(ID),
-    FOREIGN KEY (ID_Familia) REFERENCES Familia(ID),
-    FOREIGN KEY (ID_Extincion) REFERENCES Extincion(ID),
-    FOREIGN KEY (ID_Zoo) REFERENCES Zoologico(ID)
+    FOREIGN KEY (ID_NomEspecie) REFERENCES Nombre_Especie(ID) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (ID_Familia) REFERENCES Familia(ID) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (ID_Extincion) REFERENCES Extincion(ID) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (ID_Zoo) REFERENCES Zoologico(ID) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 INSERT INTO Especie (Nombre_vulgar, Nombre_cientifico, ID_NomEspecie, ID_Familia, ID_Extincion, ID_Zoo)
@@ -683,18 +683,18 @@ INSERT INTO Continente (Continente) VALUES ('Oceanos');
 
 CREATE TABLE Animal(
     ID int(5) NOT NULL AUTO_INCREMENT,
-    ID_Especie int(5) NOT NULL,
-    ID_Sexo int(3) NOT NULL,
+    ID_Especie int(5),
+    ID_Sexo int(3),
     Anio_Nacimiento int(4) NOT NULL,
-    ID_Pais int(3) NOT NULL,
-    ID_Continente int(3) NOT NULL,
-    ID_Zoo int(3) NOT NULL,
+    ID_Pais int(3),
+    ID_Continente int(3),
+    ID_Zoo int(3),
     PRIMARY KEY (ID),
-    FOREIGN KEY (ID_Especie) REFERENCES Nombre_Especie(ID),
-    FOREIGN KEY (ID_Sexo) REFERENCES Sexo(ID),
-    FOREIGN KEY (ID_Pais) REFERENCES Pais(ID),
-    FOREIGN KEY (ID_Continente) REFERENCES Continente(ID),
-    FOREIGN KEY (ID_Zoo) REFERENCES Zoologico(ID)
+    FOREIGN KEY (ID_Especie) REFERENCES Nombre_Especie(ID) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (ID_Sexo) REFERENCES Sexo(ID) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (ID_Pais) REFERENCES Pais(ID) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (ID_Continente) REFERENCES Continente(ID) ON UPDATE CASCADE ON DELETE SET NULL,
+    FOREIGN KEY (ID_Zoo) REFERENCES Zoologico(ID) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 INSERT INTO Animal (ID_Especie, ID_Sexo, Anio_Nacimiento, ID_Pais, ID_Continente, ID_Zoo) VALUES (1, 502, 2015, 343, 602, 6);
