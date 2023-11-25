@@ -10,6 +10,8 @@
         session_destroy();
         die();
     }
+
+    $rol = (isset($_GET['ID_Rol'])?$_GET['ID_Rol']:"");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,8 +34,49 @@
             </div>
             <div class="items_zoo">
                 <a href="Inicio.php">Inicio</a>
-                <a href="">Informacion</a>
-                <a href="Informacion.php">Zoológico</a>
+                <?php
+                    if($rol == 1){?>
+                        <a href="../Zoologicos/PanelSanDiego.php">Informacion</a>
+                        <?php 
+                    }else
+                    if($rol == 2){ ?>
+                        <a href="../Zoologicos/PanelSingapur.php">Informacion</a>
+                        <?php 
+                    }else
+                    if($rol == 3){ ?>
+                        <a href="../Zoologicos/PanelToronto.php">Informacion</a>
+                        <?php 
+                    }else
+                    if($rol == 4){ ?>
+                        <a href="../Zoologicos/PanelLoroParque.php">Informacion</a>
+                        <?php 
+                    }else
+                    if($rol == 5){?>
+                        <a href="../Zoologicos/PanelSchonbrunn.php">Informacion</a>
+                        <?php 
+                    }else
+                    if($rol == 6){ ?>
+                        <a href="../Zoologicos/PanelLondres.php">Informacion</a>
+                        <?php 
+                    }else
+                    if($rol == 7){ ?>
+                        <a href="../Zoologicos/PanelBerlin.php">Informacion</a>
+                        <?php 
+                    }else
+                    if($rol == 8){ ?>
+                        <a href="../Zoologicos/PanelBronx.php">Informacion</a>
+                        <?php 
+                    }else
+                    if($rol == 9){ ?>
+                        <a href="../Zoologicos/PanelChapultepec.php">Informacion</a>
+                        <?php 
+                    }else
+                    if($rol == 10){ ?>
+                        <a href="../Zoologicos/PanelTwoOceans.php">Informacion</a>
+                        <?php 
+                    }else
+                ?>
+                <a href="">Zoológico</a>
                 <a href="">Animales</a>
                 <a href="">Especies</a>
                 <a href="">Familias</a>

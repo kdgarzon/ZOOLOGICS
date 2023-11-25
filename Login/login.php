@@ -81,7 +81,7 @@
 
             if($nr > 0){
                 $_SESSION['txtUser'] = $user;
-                if($rol == 1){
+                /*if($rol == 1){
                     header('Location: ../Paneles/Zoologicos/PanelSanDiego.php');
                     exit;
                 }else
@@ -120,13 +120,18 @@
                 if($rol == 10){
                     header('Location: ../Paneles/Zoologicos/PanelTwoOceans.php');
                     exit;
-                }else
+                }else*/
                 if($rol == 11){
                     header('Location: ../Paneles/Administrador/PanelAdministrador.php');
                     exit;
                 }else
                 if($rol == 12){
                     header('Location: ../Paneles/Usuario/PanelUsuario.php');
+                    exit;
+                }else
+                if($rol != 11 && $rol != 12){
+                    $rol = (int)$rol;
+                    header("Location: ../Paneles/ZooCRUD/Inicio.php?ID_Rol=$rol");
                     exit;
                 }
             }else{
