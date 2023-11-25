@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Knewave&family=Roboto:wght@300;400;500;700&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+.titulo_logotipo{
+    color: #FFF;
+    display: inline-block;
+    vertical-align: bottom;
+    font-family: 'Knewave', sans-serif;
+    font-size: 40px;
+    margin-bottom: 5%;
+}
+.logotipo{
+    display: flex;
+    align-items: center;
+    margin-left: 1%;
+    margin-right: 138px;
 }
 html, body {
     height: 100%;
@@ -60,4 +75,57 @@ footer {
     color: white;
     font-family: 'Jost', sans-serif;
     height: 23px;
+}
+#navbarVertical {
+    display: none; /*La barra de navegación está oculta inicialmente */
+    transition: opacity 0.5s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 371px;
+    height: 98%;
+    background: rgba(57, 80, 140, 0.76);
+    backdrop-filter: blur(5px);
+    padding-top: 20px; /* Espaciado superior */
+    padding-left: 34px;
+}
+.navbarHidden {
+    opacity: 0;
+    pointer-events: none; /* Evita que los elementos sigan siendo clicables cuando están ocultos */
+}
+#navbarVertical a {
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+    margin-left: 40px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+.regresar, .logo {
+    display: inline-block;
+    vertical-align: top;
+}
+.logo{
+    margin-bottom: 4%;
+}
+h3{
+    color: #FFF;
+    font-family: 'Jua', sans-serif;
+    font-size: 24px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+hr{
+    width: 279px;
+    height: 2px;
+    background: white;
+}
+.btn_cerrar {
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+    margin-top: 3%;
 }
