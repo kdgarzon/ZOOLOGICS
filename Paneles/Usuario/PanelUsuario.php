@@ -38,7 +38,6 @@
     <footer>
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
     </footer>
-    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
     <script>
         var navbar = document.getElementById("navbarVertical");
@@ -55,16 +54,16 @@
             navbar.style.display = "block";
             setTimeout(function () {
                 navbar.classList.remove("navbarHidden");
-            }, 0); // Espera un ciclo de eventos antes de agregar la clase para activar la transición
+            }, 0); 
         }
 
         function ocultarNavbar() {
             navbar.classList.add("navbarHidden");
             setTimeout(function () {
                 navbar.style.display = "none";
-            }, 500); // Espera 0.5 segundos (duración de la transición) antes de ocultar definitivamente
+            }, 500); 
         }
-        
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
