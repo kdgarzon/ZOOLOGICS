@@ -81,46 +81,6 @@
 
             if($nr > 0){
                 $_SESSION['txtUser'] = $user;
-                /*if($rol == 1){
-                    header('Location: ../Paneles/Zoologicos/PanelSanDiego.php');
-                    exit;
-                }else
-                if($rol == 2){
-                    header('Location: ../Paneles/Zoologicos/PanelSingapur.php');
-                    exit;
-                }else
-                if($rol == 3){
-                    header('Location: ../Paneles/Zoologicos/PanelToronto.php');
-                    exit;
-                }else
-                if($rol == 4){
-                    header('Location: ../Paneles/Zoologicos/PanelLoroParque.php');
-                    exit;
-                }else
-                if($rol == 5){
-                    header('Location: ../Paneles/Zoologicos/PanelSchonbrunn.php');
-                    exit;
-                }else
-                if($rol == 6){
-                    header('Location: ../Paneles/Zoologicos/PanelLondres.php');
-                    exit;
-                }else
-                if($rol == 7){
-                    header('Location: ../Paneles/Zoologicos/PanelBerlin.php');
-                    exit;
-                }else
-                if($rol == 8){
-                    header('Location: ../Paneles/Zoologicos/PanelBronx.php');
-                    exit;
-                }else
-                if($rol == 9){
-                    header('Location: ../Paneles/Zoologicos/PanelChapultepec.php');
-                    exit;
-                }else
-                if($rol == 10){
-                    header('Location: ../Paneles/Zoologicos/PanelTwoOceans.php');
-                    exit;
-                }else*/
                 if($rol == 11){
                     header('Location: ../Paneles/Administrador/PanelAdministrador.php');
                     exit;
