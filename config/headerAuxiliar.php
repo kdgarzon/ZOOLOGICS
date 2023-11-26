@@ -1,7 +1,7 @@
 
 <div class="cont">
     <div class="tresLineas"id="NavegacionContainer" onclick="toggleNavbar()">
-        <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable" width="50px" height="50px">
+        <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable" width="50px" height="50px" class="tresLineas">
     </div>
     <div class="logo">
         <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">

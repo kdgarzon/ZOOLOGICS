@@ -28,7 +28,6 @@
 </head>
 <body>
     <?php
-
         if($rol != 12){
             include('../../config/headerZoo.php');
         }

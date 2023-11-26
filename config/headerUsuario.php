@@ -6,16 +6,18 @@
     <link rel="stylesheet" href="../../Estilos/Paneles.css">
 </head>
 <div id="navbarVertical">
-    <div class="logo">
-        <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="70px" height="70px" class="d-inline-block align-text-top">
-        <h1 class="titulo_logotipo">Zoologics</h1>
-    </div>
-    <div class="regresar" onclick="ocultarNavbar()">
-        <img src="../../Imagenes/Iconos/atras.png" alt="" width="58px" height="52px">
+    <div class="caja">
+        <div class="logo">
+            <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="70px" height="70px">
+            <h1 class="titulo_logotipo">Zoologics</h1>
+        </div>
+        <div class="regresar" onclick="ocultarNavbar()">
+            <img src="../../Imagenes/Iconos/atras.png" alt="" width="58px" height="52px">
+        </div>
     </div>
     <h3>INICIO</h3>
     <hr>
-    <a href="PanelUsuario.php">Página principal</a>
+    <a href="../Usuario/PanelUsuario.php?ID_Rol=<?php echo $rol;?>">Página principal</a>
     <h3>ZOOLOGICOS</h3>
     <hr>
     <a href="../Zoologicos/PanelSanDiego.php?ID_Rol=<?php echo $rol;?>">Zoológico de San Diego</a>

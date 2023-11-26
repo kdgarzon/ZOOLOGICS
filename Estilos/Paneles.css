@@ -5,19 +5,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-.titulo_logotipo{
+.logo .titulo_logotipo{
     color: #FFF;
     display: inline-block;
     vertical-align: bottom;
     font-family: 'Knewave', sans-serif;
     font-size: 40px;
     margin-bottom: 5%;
-}
-.logotipo{
-    display: flex;
-    align-items: center;
-    margin-left: 1%;
-    margin-right: 138px;
 }
 html, body {
     height: 100%;
@@ -88,6 +82,7 @@ footer {
     backdrop-filter: blur(5px);
     padding-top: 20px; /* Espaciado superior */
     padding-left: 34px;
+    z-index: 2;
 }
 .navbarHidden {
     opacity: 0;
@@ -104,12 +99,21 @@ footer {
     font-size: 20px;
     font-weight: 300;
 }
-.regresar, .logo {
-    display: inline-block;
-    vertical-align: top;
+.regresar img{
+    width: 58px; 
+    height: 52px;
+    opacity: 1;
 }
 .logo{
     margin-bottom: 4%;
+    display: flex;
+    align-items: center;
+    margin-left: 1%;
+    margin-right: 10px;
+}
+.logo img{
+    width: 60px; 
+    height: 60px;
 }
 h3{
     color: #FFF;
@@ -128,4 +132,11 @@ hr{
     align-items: center;
     margin-left: 100px;
     margin-top: 3%;
+}
+.btn_cerrar img{
+    width: 32px; 
+    height: 32px;
+}
+.caja{
+    display: flex;
 }
