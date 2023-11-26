@@ -86,7 +86,8 @@
                     exit;
                 }else
                 if($rol == 12){
-                    header('Location: ../Paneles/Usuario/PanelUsuario.php');
+                    $rol = (int)$rol;
+                    header("Location: ../Paneles/Usuario/PanelUsuario.php?ID_Rol=$rol");
                     exit;
                 }else
                 if($rol != 11 && $rol != 12){

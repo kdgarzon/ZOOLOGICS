@@ -10,6 +10,9 @@
         session_destroy();
         die();
     }
+
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -24,9 +27,19 @@
     <title>Inicio</title>
 </head>
 <body>
+    <?php
+
+        if($rol != 12){
+            include('../../config/headerZoo.php');
+        }
+    ?>
     <div class="barra_superior">
         <img src="../../Imagenes/San Diego/Imagenes zoo/1.jpg" alt="San Diego">
-        <?php include('../../config/headerAuxiliar.php'); ?>
+        <?php
+            if($rol == 12){
+                include('../../config/headerAuxiliar.php');
+            }
+        ?>
         <div class="cont_dos">
             <div class="uno">
                 <h1 class="titulo_imagen">ZOOLOGICO DE SAN DIEGO</h1>

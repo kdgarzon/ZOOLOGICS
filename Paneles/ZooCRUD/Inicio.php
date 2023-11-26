@@ -12,6 +12,7 @@
     }
 
     $rol = (isset($_GET['ID_Rol'])?$_GET['ID_Rol']:"");
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,43 +37,43 @@
                 <a href="Inicio.php">Inicio</a>
                 <?php
                     if($rol == 1){?>
-                        <a href="../Zoologicos/PanelSanDiego.php">Informacion</a>
+                        <a href="../Zoologicos/PanelSanDiego.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
                         <?php 
                     }else
                     if($rol == 2){ ?>
-                        <a href="../Zoologicos/PanelSingapur.php">Informacion</a>
+                        <a href="../Zoologicos/PanelSingapur.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
                         <?php 
                     }else
                     if($rol == 3){ ?>
-                        <a href="../Zoologicos/PanelToronto.php">Informacion</a>
+                        <a href="../Zoologicos/PanelToronto.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
                         <?php 
                     }else
                     if($rol == 4){ ?>
-                        <a href="../Zoologicos/PanelLoroParque.php">Informacion</a>
+                        <a href="../Zoologicos/PanelLoroParque.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
                         <?php 
                     }else
                     if($rol == 5){?>
-                        <a href="../Zoologicos/PanelSchonbrunn.php">Informacion</a>
+                        <a href="../Zoologicos/PanelSchonbrunn.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
                         <?php 
                     }else
                     if($rol == 6){ ?>
-                        <a href="../Zoologicos/PanelLondres.php">Informacion</a>
+                        <a href="../Zoologicos/PanelLondres.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
                         <?php 
                     }else
                     if($rol == 7){ ?>
-                        <a href="../Zoologicos/PanelBerlin.php">Informacion</a>
+                        <a href="../Zoologicos/PanelBerlin.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
                         <?php 
                     }else
                     if($rol == 8){ ?>
-                        <a href="../Zoologicos/PanelBronx.php">Informacion</a>
+                        <a href="../Zoologicos/PanelBronx.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
                         <?php 
                     }else
                     if($rol == 9){ ?>
-                        <a href="../Zoologicos/PanelChapultepec.php">Informacion</a>
+                        <a href="../Zoologicos/PanelChapultepec.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
                         <?php 
                     }else
                     if($rol == 10){ ?>
-                        <a href="../Zoologicos/PanelTwoOceans.php">Informacion</a>
+                        <a href="../Zoologicos/PanelTwoOceans.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
                         <?php 
                     }else
                 ?>

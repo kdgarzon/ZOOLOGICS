@@ -1,3 +1,7 @@
+<?php
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
+?>
 <head>
     <link rel="stylesheet" href="../../Estilos/Paneles.css">
 </head>
@@ -14,18 +18,18 @@
     <a href="PanelUsuario.php">Página principal</a>
     <h3>ZOOLOGICOS</h3>
     <hr>
-    <a href="../Zoologicos/PanelSanDiego.php">Zoológico de San Diego</a>
-    <a href="../Zoologicos/PanelSingapur.php">Zoológico de Singapur</a>
-    <a href="../Zoologicos/PanelToronto.php">Zoológico de Toronto</a>
-    <a href="../Zoologicos/PanelLoroParque.php">Zoológico Loro Parque</a>
-    <a href="../Zoologicos/PanelSchonbrunn.php">Zoológico de Schonbrunn</a>
-    <a href="../Zoologicos/PanelLondres.php">Zoológico de Londres</a>
-    <a href="../Zoologicos/PanelBerlin.php">Zoológico de Berlín</a>
-    <a href="../Zoologicos/PanelBronx.php">Zoológico del Bronx</a>
-    <a href="../Zoologicos/PanelChapultepec.php">Zoológico de Chapultepec</a>
+    <a href="../Zoologicos/PanelSanDiego.php?ID_Rol=<?php echo $rol;?>">Zoológico de San Diego</a>
+    <a href="../Zoologicos/PanelSingapur.php?ID_Rol=<?php echo $rol;?>">Zoológico de Singapur</a>
+    <a href="../Zoologicos/PanelToronto.php?ID_Rol=<?php echo $rol;?>">Zoológico de Toronto</a>
+    <a href="../Zoologicos/PanelLoroParque.php?ID_Rol=<?php echo $rol;?>">Zoológico Loro Parque</a>
+    <a href="../Zoologicos/PanelSchonbrunn.php?ID_Rol=<?php echo $rol;?>">Zoológico de Schonbrunn</a>
+    <a href="../Zoologicos/PanelLondres.php?ID_Rol=<?php echo $rol;?>">Zoológico de Londres</a>
+    <a href="../Zoologicos/PanelBerlin.php?ID_Rol=<?php echo $rol;?>">Zoológico de Berlín</a>
+    <a href="../Zoologicos/PanelBronx.php?ID_Rol=<?php echo $rol;?>">Zoológico del Bronx</a>
+    <a href="../Zoologicos/PanelChapultepec.php?ID_Rol=<?php echo $rol;?>">Zoológico de Chapultepec</a>
     <h3>ACUARIOS</h3>
     <hr>
-    <a href="../Zoologicos/PanelTwoOceans.php">Acuario Two Oceans</a>
+    <a href="../Zoologicos/PanelTwoOceans.php?ID_Rol=<?php echo $rol;?>">Acuario Two Oceans</a>
     <div class="btn_cerrar">
         <a href="../../Index/PaginaPrincipal.php">
             <img src="../../Imagenes/Iconos/cerrar-sesion.png" alt="" width="32px" height="32px">
