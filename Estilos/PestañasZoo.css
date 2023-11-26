@@ -122,12 +122,14 @@ h2{
     justify-content: space-around;
     margin-top: 40px;
     margin-bottom: 80px;
+    flex-wrap: wrap;
 }
 .card{
     width: 561px;
     height: 425px;
     border-radius: 30px;
     overflow: hidden;
+    margin-top: 1%;
 }
 .card img{
     object-fit: cover;
@@ -163,11 +165,21 @@ h2{
     margin-bottom: 25px;
 }
 
+/*COLORES DE TITULOS DEPENDIENDO EL ZOOLOGICO*/
+
+#singapur{
+    color: #327B26;
+}
+#titSingapur{
+    color: #B8F196;
+}
+
 /*CONSERVACION DE ESPECIES*/
 
 .conservacion{
     background: #F4FFEC;
     padding-top: 30px;
+    padding-bottom: 2%;
     margin-left:180px;
     margin-right: 180px;
 }
@@ -220,10 +232,14 @@ h2{
     display: flex; /* Establece un contenedor flexible */
     flex-direction: column;
     align-items: center; 
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 }
 .circulo_tarjeta .cirImg{
     margin-right: 107%;
+}
+.granImagen img{
+    border-radius: 30px;
+    object-fit: cover;
 }
 
 /*GALERIA DE FOTOS*/

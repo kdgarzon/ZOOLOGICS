@@ -10,6 +10,9 @@
         session_destroy();
         die();
     }
+
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,23 +22,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Estilos/Paneles.css">
+    <link rel="stylesheet" href="../../Estilos/PestañasZoo.css">
     <title>Inicio</title>
 </head>
 <body>
-<div class="barra_superior">
+    <?php
+        if($rol != 12){
+            include('../../config/headerZoo.php');
+        }
+    ?>
+    <div class="barra_superior">
         <img src="../../Imagenes/San Diego/Imagenes zoo/2.jpg" alt="San Diego">
-        <div class="cont">
-            <div class="logo">
-                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
-                <h1 class="titulo_logotipo">Zoologics</h1>
-            </div>
-            <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable">
-        </div>
+        <?php
+            if($rol == 12){
+                include('../../config/headerAuxiliar.php');
+            }
+        ?>
         <div class="cont_dos">
-            <h1 class="titulo_imagen">Zoológico de Singapur</h1>
-            <h3 class="apartado">
-                El zoo, que ocupa una extensión de 26 hectáreas, alberga a 2.800 animales de 300 especies.
-            </h3>
+            <div class="uno">
+                <h1 class="titulo_imagen" id="titSingapur">ZOOLOGICO DE SINGAPUR</h1>
+            </div>
+            <div class="dos">
+                <h3 class="apartado">
+                    El zoo, que ocupa una extensión de 26 hectáreas, alberga a 2.800 animales de 300 especies.
+                </h3>
+            </div>
         </div>
     </div>
     <div class="texto_cuerpo">
@@ -46,7 +58,7 @@
             en el norte de Singapur, en el medio de una reserva natural, en un entorno de selva 
             tropical.
         </p>
-        <h2 class="titulos_contenido_uno">ACTIVIDADES DISPONIBLES</h2>
+        <h2 class="titulos_contenido_uno" id="singapur">ACTIVIDADES DISPONIBLES</h2>
         <p class="parrafo">
             El zoo, que ocupa una extensión de 26 hectáreas, alberga a 2.800 animales de 300 
             especies. Tiene varios kilómetros de senderos asfaltados que permite ver de cerca 
@@ -99,7 +111,7 @@
     </div>
     <div class = "conservacion">
         <h2 class="titulos_contenido_dos">CONSERVACION DE ESPECIES</h2>
-        <div class="esquema">
+        <div class="tarjetas">
             <div class="granImagen">
                 <img src="../../Imagenes/Singapur/opcional.jpg" alt="Imagen principal" height="682px" width="494px">
             </div>
@@ -145,44 +157,46 @@
     </div>
     <div class="galeria_animales">
         <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
-        <div class="foto">
-            <img src="../../Imagenes/Singapur/Suricata.jpg" alt="Suricata" width="290px" height="290px">
-            <a href="https://www.bioparcvalencia.es/animal/sabana-africana/suricata/">Suricata</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Singapur/Jirafa.jpg" alt="Jirafa" width="290px" height="290px">
-            <a href="https://www.mandai.com/en/singapore-zoo/animals-and-zones/giraffe.html">Jirafa</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Singapur/Pato Silbador.jpg" alt="Pato silbador" width="290px" height="290px">
-            <a href="https://www.zoobioparqueamaru.com/nuestros-animales/animal.php?Id_Animal=31-patos-silbadores:-canelo-y-ventrinegro&Grupo=aves">Pato silbador</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Singapur/titi leon.jpg" alt="Tití León" width="290px" height="290px">
-            <a href="https://apespain.org/conoce-al-titi-leon-de-cabeza-dorada/">Tití León</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Singapur/dragon barbudo.jpg" alt="Dragon Barbudo" width="290px" height="290px">
-            <a href="https://www.zooplus.es/magazine/reptiles/especies-de-reptiles/dragon-barbudo-pogona">Dragon Barbudo</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Singapur/rana teñir.jpg" alt="Rana Teñir" width="290px" height="290px">
-            <a href="https://www.expertoanimal.com/ranas/rana-flecha-azul.html">Rana Teñir</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Singapur/Guepardo.jpg" alt="Guepardo" width="290px" height="290px">
-            <a href="https://www.mandai.com/en/singapore-zoo/animals-and-zones/cheetah.html">Guepardo</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Singapur/Geco azul.jpg" alt="Geco Azul" width="290px" height="290px">
-            <a href="https://www.mandai.com/en/singapore-zoo/animals-and-zones/cheetah.html">Geco Azul</a>
+        <div class="fotos">
+            <div class="foto">
+                <img src="../../Imagenes/Singapur/Suricata.jpg" alt="Suricata" width="290px" height="290px">
+                <a href="https://www.bioparcvalencia.es/animal/sabana-africana/suricata/">Suricata</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Singapur/Jirafa.jpg" alt="Jirafa" width="290px" height="290px">
+                <a href="https://www.mandai.com/en/singapore-zoo/animals-and-zones/giraffe.html">Jirafa</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Singapur/Pato Silbador.jpg" alt="Pato silbador" width="290px" height="290px">
+                <a href="https://www.zoobioparqueamaru.com/nuestros-animales/animal.php?Id_Animal=31-patos-silbadores:-canelo-y-ventrinegro&Grupo=aves">Pato silbador</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Singapur/titi leon.jpg" alt="Tití León" width="290px" height="290px">
+                <a href="https://apespain.org/conoce-al-titi-leon-de-cabeza-dorada/">Tití León</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Singapur/dragon barbudo.jpg" alt="Dragon Barbudo" width="290px" height="290px">
+                <a href="https://www.zooplus.es/magazine/reptiles/especies-de-reptiles/dragon-barbudo-pogona">Dragon Barbudo</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Singapur/rana teñir.jpg" alt="Rana Teñir" width="290px" height="290px">
+                <a href="https://www.expertoanimal.com/ranas/rana-flecha-azul.html">Rana Teñir</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Singapur/Guepardo.jpg" alt="Guepardo" width="290px" height="290px">
+                <a href="https://www.mandai.com/en/singapore-zoo/animals-and-zones/cheetah.html">Guepardo</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Singapur/Geco azul.jpg" alt="Geco Azul" width="290px" height="290px">
+                <a href="https://www.mandai.com/en/singapore-zoo/animals-and-zones/cheetah.html">Geco Azul</a>
+            </div>
         </div>
     </div>
     <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
-    <footer>
+    <div class="footer">
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
-    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>
