@@ -1,4 +1,6 @@
-
+<head>
+    <link rel="stylesheet" href="../../Estilos/Paneles.css">
+</head>
 <div class="cont">
     <div class="tresLineas"id="NavegacionContainer" onclick="toggleNavbar()">
         <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable" width="50px" height="50px" class="tresLineas">

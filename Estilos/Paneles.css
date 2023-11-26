@@ -140,3 +140,12 @@ hr{
 .caja{
     display: flex;
 }
+.cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cont .logo{
+    margin-left: 85%;
+    margin-top:1%;
+}
