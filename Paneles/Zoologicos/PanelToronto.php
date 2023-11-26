@@ -10,6 +10,9 @@
         session_destroy();
         die();
     }
+
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,23 +22,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Estilos/Paneles.css">
+    <link rel="stylesheet" href="../../Estilos/PestañasZoo.css">
     <title>Inicio</title>
 </head>
 <body>
+    <?php
+        if($rol != 12){
+            include('../../config/headerZoo.php');
+        }
+    ?>
     <div class="barra_superior">
         <img src="../../Imagenes/San Diego/Imagenes zoo/3.jpeg" alt="San Diego">
-        <div class="cont">
-            <div class="logo">
-                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
-                <h1 class="titulo_logotipo">Zoologics</h1>
-            </div>
-            <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable">
-        </div>
+        <?php
+            if($rol == 12){
+                include('../../config/headerAuxiliar.php');
+            }
+        ?>
         <div class="cont_dos">
-            <h1 class="titulo_imagen">Zoológico de Toronto</h1>
-            <h3 class="apartado">
-                El zoológico está localizado próximo al río Rouge en la parte noroeste de la ciudad.
-            </h3>
+            <div class="uno">
+                <h1 class="titulo_imagen" id="titToronto">ZOOLOGICO DE TORONTO</h1>
+            </div>
+            <div class="dos">
+                <h3 class="apartado">
+                    El zoológico está localizado próximo al río Rouge en la parte noroeste de la ciudad.
+                </h3>
+            </div>
         </div>
     </div>
     <div class="texto_cuerpo">
@@ -47,7 +59,7 @@
             retirada del nombre cuando las ciudades de la Municipalidad de la Región Metropolitana 
             de Toronto fueron reunidas para formar la ciudad de Toronto.
         </p>
-        <h2 class="titulos_contenido_uno">ACTIVIDADES DISPONIBLES</h2>
+        <h2 class="titulos_contenido_uno" id="actToronto">ACTIVIDADES DISPONIBLES</h2>
         <div class="cards_actividades">
             <div class="card">
                 <img src="../../Imagenes/Toronto/card1.jpg" alt="" width="561px" height="283px">
@@ -116,74 +128,77 @@
             </div>
         </div>
     </div>
-    <div class = "conservacion">
+    <div class = "conservacion" id="conToronto">
         <img src="../../Imagenes/Toronto/opcional.jpg" alt="">
-        <h2 class="titulos_contenido_dos">CONSERVACION DE ESPECIES</h2>
-        <div class = "cajas">
-            <h4 class="cirTitulo">África</h4>
-        </div>
-        <div class = "cajas">
-            <h4 class="cirTitulo">América</h4>
-        </div>
-        <div class = "cajas">
-            <h4 class="cirTitulo">Australasia</h4>
-        </div>
-        <div class = "cajas">
-            <h4 class="cirTitulo">Dominio Canadiense</h4>
-        </div>
-        <div class = "cajas">
-            <h4 class="cirTitulo">Zona de descubrimiento</h4>
-        </div>
-        <div class = "cajas">
-            <h4 class="cirTitulo">Eurasia salvaje</h4>
-        </div>
-        <div class = "cajas">
-            <h4 class="cirTitulo">Indo - Malaya</h4>
-        </div>
-        <div class = "cajas">
-            <h4 class="cirTitulo">Caminata por la tundra</h4>
+        <h2 class="titulos_contenido_dos" id="espToronto">CONSERVACION DE ESPECIES</h2>
+        <div class="tarjetas">
+            <div class = "cajas">
+                <h4 class="cirTitulo">África</h4>
+            </div>
+            <div class = "cajas">
+                <h4 class="cirTitulo">América</h4>
+            </div>
+            <div class = "cajas">
+                <h4 class="cirTitulo">Australasia</h4>
+            </div>
+            <div class = "cajas">
+                <h4 class="cirTitulo">Dominio Canadiense</h4>
+            </div>
+            <div class = "cajas">
+                <h4 class="cirTitulo">Zona de descubrimiento</h4>
+            </div>
+            <div class = "cajas">
+                <h4 class="cirTitulo">Eurasia salvaje</h4>
+            </div>
+            <div class = "cajas">
+                <h4 class="cirTitulo">Indo - Malaya</h4>
+            </div>
+            <div class = "cajas">
+                <h4 class="cirTitulo">Caminata por la tundra</h4>
+            </div>
         </div>
     </div>
     <div class="galeria_animales">
         <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
-        <div class="foto">
-            <img src="../../Imagenes/Toronto/ibis escarlata.jpg" alt="Ibis escarlata" width="290px" height="290px">
-            <a href="https://www.torontozoo.com/animals/Scarlet%20ibis">Ibis escarlata</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Toronto/polluelo negro.jpg" alt="Polluelo negro" width="290px" height="290px">
-            <a href="https://www.torontozoo.com/animals/Black%20Crake">Polluelo negro</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Toronto/mapache.jpg" alt="Mapache" width="290px" height="290px">
-            <a href="https://www.torontozoo.com/animals/Raccoon">Mapache</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Toronto/halcon de harris.jpg" alt="Halcón de Harris" width="290px" height="290px">
-            <a href="https://www.torontozoo.com/animals/Harris's%20hawk">Halcón de Harris</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Toronto/medusa luna.jpg" alt="Medusa Luna" width="290px" height="290px">
-            <a href="https://www.torontozoo.com/animals/Moon%20jellyfish">Medusa Luna</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Toronto/panda rojo.jpg" alt="Panda rojo" width="290px" height="290px">
-            <a href="https://www.torontozoo.com/animals/Red%20Panda">Panda rojo</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Toronto/pato mandarin.jpg" alt="Pato mandarin" width="290px" height="290px">
-            <a href="https://www.torontozoo.com/animals/Mandarin%20duck">Pato mandarin</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Toronto/caribu.jpg" alt="Caribú" width="290px" height="290px">
-            <a href="https://www.torontozoo.com/animals/Caribou">Caribú</a>
+        <div class="fotos">
+            <div class="foto">
+                <img src="../../Imagenes/Toronto/ibis escarlata.jpg" alt="Ibis escarlata" width="290px" height="290px">
+                <a href="https://www.torontozoo.com/animals/Scarlet%20ibis">Ibis escarlata</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Toronto/polluelo negro.jpg" alt="Polluelo negro" width="290px" height="290px">
+                <a href="https://www.torontozoo.com/animals/Black%20Crake">Polluelo negro</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Toronto/mapache.jpg" alt="Mapache" width="290px" height="290px">
+                <a href="https://www.torontozoo.com/animals/Raccoon">Mapache</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Toronto/halcon de harris.jpg" alt="Halcón de Harris" width="290px" height="290px">
+                <a href="https://www.torontozoo.com/animals/Harris's%20hawk">Halcón de Harris</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Toronto/medusa luna.jpg" alt="Medusa Luna" width="290px" height="290px">
+                <a href="https://www.torontozoo.com/animals/Moon%20jellyfish">Medusa Luna</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Toronto/panda rojo.jpg" alt="Panda rojo" width="290px" height="290px">
+                <a href="https://www.torontozoo.com/animals/Red%20Panda">Panda rojo</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Toronto/pato mandarin.jpg" alt="Pato mandarin" width="290px" height="290px">
+                <a href="https://www.torontozoo.com/animals/Mandarin%20duck">Pato mandarin</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Toronto/caribu.jpg" alt="Caribú" width="290px" height="290px">
+                <a href="https://www.torontozoo.com/animals/Caribou">Caribú</a>
+            </div>
         </div>
     </div>
-    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
-    <footer>
+    <div class="footer">
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
-    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>

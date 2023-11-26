@@ -173,6 +173,18 @@ h2{
 #titSingapur{
     color: #B8F196;
 }
+#titToronto{
+    color: #ECF99C;
+}
+#actToronto{
+    color: #B99E58;
+}
+#conToronto{
+    background: #FAFFDC;/*Sección de conservación de especies en Toronto*/
+}
+#espToronto{
+    color: #7B8138;
+}
 
 /*CONSERVACION DE ESPECIES*/
 
@@ -240,6 +252,24 @@ h2{
 .granImagen img{
     border-radius: 30px;
     object-fit: cover;
+}
+.conservacion img{
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 2%;
+}
+.cajas{
+    border-radius: 50px;
+    border: 3px solid #4CA43D;
+    background: #FFF;
+    width: 70%;
+    height: 70%;
+    margin-left: 3%;
+    margin-bottom: 3%;
+    padding: 2%;
+}
+.cajas h4{
+    text-align: center;
 }
 
 /*GALERIA DE FOTOS*/
