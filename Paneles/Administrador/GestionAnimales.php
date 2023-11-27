@@ -112,10 +112,6 @@
                 <input type="number" class="form-control" placeholder="Año de nacimiento..." id="txtAnioNacimiento" name="txtAnioNacimiento" required>
             </div>
             <?php
-                /*$sqlZoo = "SELECT ID, Nombre FROM Zoologico";
-                $Zoo = $link->query($sqlZoo);*/
-            ?>
-            <?php
                 if($rol == 11){ 
                     $sqlZoo = "SELECT ID, Nombre FROM Zoologico";
                     $Zoo = $link->query($sqlZoo); ?>
@@ -144,7 +140,6 @@
                             <?php    } ?>
                         </select>
                     </div>
-                    
                 <?php }
             ?>
             <div class="col-md-2" id = "boton">
