@@ -244,6 +244,21 @@ h2{
 #conserLondres{/*Fondo de conservación del zoológico de Londres*/
     background: #FBEDFF;
 }
+#titBerlin{
+    text-align: center;
+    color: #F1EE96;
+}
+#apartadoBerlin{
+    font-size: 23px;
+}
+#actBerlin{
+    color: #C37B37;
+}
+#consBerlin{/*Fondo de conservación del zoolóico de Berlin*/
+    background: #FFF5EC;
+    padding-left: 5%;
+    padding-right: 5%;
+}
 
 /*CONSERVACION DE ESPECIES*/
 

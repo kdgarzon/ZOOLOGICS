@@ -10,6 +10,9 @@
         session_destroy();
         die();
     }
+
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,24 +22,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Estilos/Paneles.css">
+    <link rel="stylesheet" href="../../Estilos/PestañasZoo.css">
     <title>Inicio</title>
 </head>
 <body>
+    <?php
+        if($rol != 12){
+            include('../../config/headerZoo.php');
+        }
+    ?>
     <div class="barra_superior">
         <img src="../../Imagenes/San Diego/Imagenes zoo/Berlin.jpg" alt="San Diego">
-        <div class="cont">
-            <div class="logo">
-                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
-                <h1 class="titulo_logotipo">Zoologics</h1>
-            </div>
-            <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable">
-        </div>
+        <?php
+            if($rol == 12){
+                include('../../config/headerAuxiliar.php');
+            }
+        ?>
         <div class="cont_dos">
-            <h1 class="titulo_imagen">Zoológico de Berlín</h1>
-            <h3 class="apartado">
-                No es solo el zoológico más antiguo y visitado de Alemania, sino también el que 
-                cuenta con mayor número de especies en el mundo.
-            </h3>
+            <div class="uno">
+                <h1 class="titulo_imagen" id="titBerlin">ZOOLOGICO DE BERLIN</h1>
+            </div>
+            <div class="dos">
+                <h3 class="apartado" id="apartadoBerlin">
+                    No es solo el zoológico más antiguo y visitado de Alemania, sino también el que 
+                    cuenta con mayor número de especies en el mundo.
+                </h3>
+            </div>
         </div>
     </div>
     <div class="texto_cuerpo">
@@ -51,7 +63,7 @@
             El Acuario de Berlín es uno de los acuarios más importante de Europa. El zoo tiene 
             además una casa de hipopótamos y uno de los aviarios más grandes y modernos de Europa.
         </p>
-        <h2 class="titulos_contenido_uno">ACTIVIDADES DISPONIBLES</h2>
+        <h2 class="titulos_contenido_uno" id="actBerlin">ACTIVIDADES DISPONIBLES</h2>
         <div class="cards_actividades">
             <div class="card">
                 <img src="../../Imagenes/Berlin/card1.jpg" alt="" width="561px" height="283px">
@@ -73,8 +85,8 @@
             </div>
         </div>
     </div>
-    <div class = "conservacion">
-        <h2 class="titulos_contenido_dos">CARACTERISTICAS</h2>
+    <div class = "conservacion" id="consBerlin">
+        <h2 class="titulos_contenido_dos"  id="actBerlin">CARACTERISTICAS</h2>
         <p class="parrafo">
             Este zoo tiene osos pandas, que pueden ser vistos en muy pocos zoos en el mundo. 
             Todos los animales son encerrados en un área diseñada para recrear su hábitat natural. 
@@ -95,29 +107,30 @@
         </p>
     </div>
     <div class="galeria_animales">
-        <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
-        <div class="foto">
-            <img src="../../Imagenes/Berlin/leon marino.jpg" alt="León marino" width="290px" height="290px">
-            <a href="https://es.wikipedia.org/wiki/Otariinae">León marino</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Berlin/orangutan.jpg" alt="Orangutanes" width="290px" height="290px">
-            <a href="https://es.wikipedia.org/wiki/Pongo">Orangutanes</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Berlin/chimpance.jpg" alt="Chimpancé" width="290px" height="290px">
-            <a href="https://www.nationalgeographic.es/animales/chimpance">Chimpancé</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Berlin/cabra.jpg" alt="Cabra" width="290px" height="290px">
-            <a href="https://es.wikipedia.org/wiki/Capra_aegagrus_hircus">Cabra</a>
-        </div>
+        <h2 class="titulos_contenido_tres"  id="actBerlin">ANIMALES MAS DESTACADOS</h2>
+        <div class="fotos">
+            <div class="foto">
+                <img src="../../Imagenes/Berlin/leon marino.jpg" alt="León marino" width="290px" height="290px">
+                <a href="https://es.wikipedia.org/wiki/Otariinae">León marino</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Berlin/orangutan.jpg" alt="Orangutanes" width="290px" height="290px">
+                <a href="https://es.wikipedia.org/wiki/Pongo">Orangutanes</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Berlin/chimpance.jpg" alt="Chimpancé" width="290px" height="290px">
+                <a href="https://www.nationalgeographic.es/animales/chimpance">Chimpancé</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Berlin/cabra.jpg" alt="Cabra" width="290px" height="290px">
+                <a href="https://es.wikipedia.org/wiki/Capra_aegagrus_hircus">Cabra</a>
+            </div>
+        </div>    
     </div>
-    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
-    <footer>
+    <div class="footer">
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
-    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>
