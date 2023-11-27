@@ -278,6 +278,13 @@ h2{
     padding-left: 5%;
     padding-right: 5%;
 }
+#titAcuario{
+    color: #432C9E;
+    text-align: center;
+}
+#actAcuario{
+    color: #41267B;
+}
 
 /*CONSERVACION DE ESPECIES*/
 

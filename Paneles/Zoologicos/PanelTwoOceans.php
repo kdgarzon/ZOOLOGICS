@@ -10,6 +10,9 @@
         session_destroy();
         die();
     }
+
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,23 +22,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Estilos/Paneles.css">
+    <link rel="stylesheet" href="../../Estilos/PestañasZoo.css">
     <title>Inicio</title>
 </head>
 <body>
-<div class="barra_superior">
+    <?php
+        if($rol != 12){
+            include('../../config/headerZoo.php');
+        }
+    ?>
+    <div class="barra_superior">
         <img src="../../Imagenes/San Diego/Imagenes zoo/Two oceans.jpg" alt="San Diego">
-        <div class="cont">
-            <div class="logo">
-                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
-                <h1 class="titulo_logotipo">Zoologics</h1>
-            </div>
-            <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable">
-        </div>
+        <?php
+            if($rol == 12){
+                include('../../config/headerAuxiliar.php');
+            }
+        ?>
         <div class="cont_dos">
-            <h1 class="titulo_imagen">Acuario Two Oceans</h1>
-            <h3 class="apartado">
-                El Acuario Two Oceans está diseñado para mostrar la diversidad de vida marina de la costa sudafricana
-            </h3>
+            <div class="uno">
+                <h1 class="titulo_imagen" id="titAcuario">ACUARIO TWO OCEANS</h1>
+            </div>
+            <div class="dos">
+                <h3 class="apartado">
+                    El Acuario Two Oceans está diseñado para mostrar la diversidad de vida marina de la costa sudafricana
+                </h3>
+            </div>
         </div>
     </div>
     <div class="texto_cuerpo">
@@ -46,7 +58,7 @@
             a liberar a las focas que a veces se quedan enredadas en tiras de plástico e hilos de 
             pesca.
         </p>
-        <h2 class="titulos_contenido_uno">ACTIVIDADES DISPONIBLES</h2>
+        <h2 class="titulos_contenido_uno" id="actAcuario">ACTIVIDADES DISPONIBLES</h2>
         <p class="parrafo">
             Los visitantes pueden pasar felizmente una tarde explorando el espectáculo de primera 
             clase, que entre ellos se encuentra una gran pecera de depredadores con tiburones 
@@ -90,29 +102,30 @@
         </div>
     </div>
     <div class="galeria_animales">
-        <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
-        <div class="foto">
-            <img src="../../Imagenes/Two Oceans/morenas.jpeg" alt="Morenas" width="290px" height="290px">
-            <a href="https://www.aquarium.co.za/animals/moray-eels">Morenas</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Two Oceans/Pulpos.jpg" alt="Pulpos" width="290px" height="290px">
-            <a href="https://www.aquarium.co.za/animals/octopus">Pulpos</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Two Oceans/Tortugas.jpg" alt="Tortugas" width="290px" height="290px">
-            <a href="https://www.aquarium.co.za/animals/turtles">Tortugas</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Two Oceans/Medusas.jpg" alt="Medusas" width="290px" height="290px">
-            <a href="https://www.aquarium.co.za/animals/jellyfish">Medusas</a>
+        <h2 class="titulos_contenido_tres" id="actAcuario">ANIMALES MAS DESTACADOS</h2>
+        <div class="fotos">
+            <div class="foto">
+                <img src="../../Imagenes/Two Oceans/morenas.jpeg" alt="Morenas" width="290px" height="290px">
+                <a href="https://www.aquarium.co.za/animals/moray-eels">Morenas</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Two Oceans/Pulpos.jpg" alt="Pulpos" width="290px" height="290px">
+                <a href="https://www.aquarium.co.za/animals/octopus">Pulpos</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Two Oceans/Tortugas.jpg" alt="Tortugas" width="290px" height="290px">
+                <a href="https://www.aquarium.co.za/animals/turtles">Tortugas</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Two Oceans/Medusas.jpg" alt="Medusas" width="290px" height="290px">
+                <a href="https://www.aquarium.co.za/animals/jellyfish">Medusas</a>
+            </div>
         </div>
     </div>
-    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
-    <footer>
+    <div class="footer">
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
-    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>
