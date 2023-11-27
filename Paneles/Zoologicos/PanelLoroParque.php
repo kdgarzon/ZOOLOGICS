@@ -10,6 +10,9 @@
         session_destroy();
         die();
     }
+
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,23 +22,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Estilos/Paneles.css">
+    <link rel="stylesheet" href="../../Estilos/PestañasZoo.css">
     <title>Inicio</title>
 </head>
 <body>
+    <?php
+        if($rol != 12){
+            include('../../config/headerZoo.php');
+        }
+    ?>
     <div class="barra_superior">
         <img src="../../Imagenes/San Diego/Imagenes zoo/Loro Parque.jpg" alt="San Diego">
-        <div class="cont">
-            <div class="logo">
-                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
-                <h1 class="titulo_logotipo">Zoologics</h1>
-            </div>
-            <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable">
-        </div>
+        <?php
+            if($rol == 12){
+                include('../../config/headerAuxiliar.php');
+            }
+        ?>
         <div class="cont_dos">
-            <h1 class="titulo_imagen">Zoológico Loro Parque</h1>
-            <h3 class="apartado">
-                Más 100 especies animales reintroducidas con éxitos desde zoológicos a la vida silvestre.
-            </h3>
+            <div class="uno">
+                <h1 class="titulo_imagen" id="titLoroParque">ZOOLOGICO LORO PARQUE</h1>
+            </div>
+            <div class="dos">
+                <h3 class="apartado">
+                    Más 100 especies animales reintroducidas con éxitos desde zoológicos a la vida silvestre.
+                </h3>
+            </div>
         </div>
     </div>
     <div class="texto_cuerpo">
@@ -47,28 +59,40 @@
             y lo hacemos desde los hallazgos biológicos obtenidos en zoológicos modernos y 
             mediante la aplicación de los conocimientos veterinarios a la fauna silvestre.
         </p>
-        <h2 class="titulos_contenido_uno">PRINCIPIOS LORO PARQUE</h2>
-        <div class="numeral">
-            <div class="numero">1</div>
-            <p>Libertad de alimentación e hidratación</p>
+        <h2 class="titulos_contenido_uno" id="LoroParqueAct">PRINCIPIOS LORO PARQUE</h2>
+        <div class="numerales">
+            <div class="numeral">
+                <div class="numero">
+                    <h1 class="num">1</h1>
+                </div>
+                <p>Libertad de alimentación e hidratación</p>
+            </div>
+            <div class="numeral">
+                <div class="numero">
+                    <h1 class="num">2</h1>
+                </div>
+                <p>Libertad de ambiente apropiado</p>
+            </div>
+            <div class="numeral">
+                <div class="numero">
+                    <h1 class="num">3</h1>
+                </div>
+                <p>Libertad de buena salud</p>
+            </div>
+            <div class="numeral">
+                <div class="numero">
+                    <h1 class="num">4</h1>
+                </div>
+                <p>Libertad de bienestar emocional</p>
+            </div>
+            <div class="numeral">
+                <div class="numero">
+                    <h1 class="num">5</h1>
+                </div>
+                <p>Libertad para expresar su comportamiento natural</p>
+            </div>
         </div>
-        <div class="numeral">
-            <div class="numero">2</div>
-            <p>Libertad de ambiente apropiado</p>
-        </div>
-        <div class="numeral">
-            <div class="numero">3</div>
-            <p>Libertad de buena salud</p>
-        </div>
-        <div class="numeral">
-            <div class="numero">4</div>
-            <p>Libertad de bienestar emocional</p>
-        </div>
-        <div class="numeral">
-            <div class="numero">5</div>
-            <p>Libertad para expresar su comportamiento natural</p>
-        </div>
-        <h2 class="titulos_contenido_uno">ACTIVIDADES DISPONIBLES</h2>
+        <h2 class="titulos_contenido_uno" id="LoroParqueAct">ACTIVIDADES DISPONIBLES</h2>
         <div class="cards_actividades">
             <div class="card">
                 <img src="../../Imagenes/Loro parque/card1.jpg" alt="" width="561px" height="283px">
@@ -140,45 +164,46 @@
         </div>
     </div>
     <div class="galeria_animales">
-        <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
-        <div class="foto">
-            <img src="../../Imagenes/Loro parque/Orcas.jpg" alt="Orcas" width="290px" height="290px">
-            <a href="https://www.loroparque.com/ficha-animales-orcas/">Orcas</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Loro parque/nutrias.jpg" alt="Nutrias" width="290px" height="290px">
-            <a href="https://www.loroparque.com/ficha-animales-nutrias/">Nutrias</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Loro parque/perezoso.jpg" alt="Perezosos" width="290px" height="290px">
-            <a href="https://www.loroparque.com/ficha-animales-perezosos/">Perezosos</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Loro parque/capibara.jpg" alt="Capibara" width="290px" height="290px">
-            <a href="https://www.loroparque.com/ficha-animales-capibaras/">Capibara</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Loro parque/flamencos.jpg" alt="Flamencos" width="290px" height="290px">
-            <a href="https://www.loroparque.com/ficha-animales-flamencos/">Flamencos</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Loro parque/hipopotamo.jpg" alt="Hipopotamos" width="290px" height="290px">
-            <a href="https://www.loroparque.com/ficha-animales-hipopotamo-pigmeo/">Hipopotamos</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Loro parque/loros.jpg" alt="Loros" width="290px" height="290px">
-            <a href="https://www.loroparque.com/ficha-animales-loros/">Loros</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Loro parque/tiburones.jpg" alt="Tiburones" width="290px" height="290px">
-            <a href="https://www.loroparque.com/ficha-animales-tiburon-gris/">Tiburones</a>
+        <h2 class="titulos_contenido_tres" id="LoroParqueAct">ANIMALES MAS DESTACADOS</h2>
+        <div class="fotos">
+            <div class="foto">
+                <img src="../../Imagenes/Loro parque/Orcas.jpg" alt="Orcas" width="290px" height="290px">
+                <a href="https://www.loroparque.com/ficha-animales-orcas/">Orcas</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Loro parque/nutrias.jpg" alt="Nutrias" width="290px" height="290px">
+                <a href="https://www.loroparque.com/ficha-animales-nutrias/">Nutrias</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Loro parque/perezoso.jpg" alt="Perezosos" width="290px" height="290px">
+                <a href="https://www.loroparque.com/ficha-animales-perezosos/">Perezosos</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Loro parque/capibara.jpg" alt="Capibara" width="290px" height="290px">
+                <a href="https://www.loroparque.com/ficha-animales-capibaras/">Capibara</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Loro parque/flamencos.jpg" alt="Flamencos" width="290px" height="290px">
+                <a href="https://www.loroparque.com/ficha-animales-flamencos/">Flamencos</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Loro parque/hipopotamo.jpg" alt="Hipopotamos" width="290px" height="290px">
+                <a href="https://www.loroparque.com/ficha-animales-hipopotamo-pigmeo/">Hipopotamos</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Loro parque/loros.jpg" alt="Loros" width="290px" height="290px">
+                <a href="https://www.loroparque.com/ficha-animales-loros/">Loros</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Loro parque/tiburones.jpg" alt="Tiburones" width="290px" height="290px">
+                <a href="https://www.loroparque.com/ficha-animales-tiburon-gris/">Tiburones</a>
+            </div>
         </div>
     </div>
-    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
-    <footer>
+    <div class="footer">
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
-    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>
