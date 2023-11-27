@@ -34,6 +34,9 @@
 
     $sqlSeleccionar = "SELECT * FROM Especie WHERE ID = $ID_u";
     $registros = $link->query($sqlSeleccionar);
+
+    $rol = (isset($_GET['ID_Rol'])?$_GET['ID_Rol']:"");
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 
 <!DOCTYPE html>

@@ -1,31 +1,35 @@
+<?php
+    $rol = (isset($_GET['ID_Rol'])?$_GET['ID_Rol']:"");
+    $_SESSION['ID_Rol'] = $rol;
+?>
 <header>
     <nav class="navbar navbar-expand-lg" style = "background-color:#33AE47">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex" href="PanelAdministrador.php">
+            <a class="navbar-brand d-flex" href="PanelAdministrador.php?ID_Rol=<?php echo $rol;?>">
                 <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
                 <h1 class="titulo_logotipo">Zoologics</h1>
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="PanelAdministrador.php" style = "color:#FFF" id = "item">Inicio</a>
+                        <a class="nav-link" href="PanelAdministrador.php?ID_Rol=<?php echo $rol;?>" style = "color:#FFF" id = "item">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Informacion.php" style = "color:#FFF" id = "item">Información</a>
+                        <a class="nav-link" href="Informacion.php?ID_Rol=<?php echo $rol;?>" style = "color:#FFF" id = "item">Información</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="GestionUsuarios.php" style = "color:#FFF" id = "item">Usuarios</a>
+                        <a class="nav-link" href="GestionUsuarios.php?ID_Rol=<?php echo $rol;?>" style = "color:#FFF" id = "item">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="GestionZoologicos.php" style = "color:#FFF" id = "item">Zoológicos</a>
+                        <a class="nav-link" href="GestionZoologicos.php?ID_Rol=<?php echo $rol;?>" style = "color:#FFF" id = "item">Zoológicos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" style = "color:#FFF" id = "item">
                             Especies
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="GestionEspecies.php">Gestión de especies</a></li>
-                            <li><a class="dropdown-item" href="AñadirEspecies.php">Agregar especies</a></li>
+                            <li><a class="dropdown-item" href="GestionEspecies.php?ID_Rol=<?php echo $rol;?>">Gestión de especies</a></li>
+                            <li><a class="dropdown-item" href="AñadirEspecies.php?ID_Rol=<?php echo $rol;?>">Agregar especies</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -33,8 +37,8 @@
                             Animales
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="GestionAnimales.php">Gestión de animales</a></li>
-                            <li><a class="dropdown-item" href="GestionFamilias.php">Gestión de familias</a></li>
+                            <li><a class="dropdown-item" href="GestionAnimales.php?ID_Rol=<?php echo $rol;?>">Gestión de animales</a></li>
+                            <li><a class="dropdown-item" href="GestionFamilias.php?ID_Rol=<?php echo $rol;?>">Gestión de familias</a></li>
                         </ul>
                     </li>
                 </ul>

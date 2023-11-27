@@ -14,6 +14,9 @@
     require('../../config/conexion.php');
     $link = conectar();
 
+    $rol = (isset($_GET['ID_Rol'])?$_GET['ID_Rol']:"");
+    $_SESSION['ID_Rol'] = $rol;
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

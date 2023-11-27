@@ -82,7 +82,7 @@
             if($nr > 0){
                 $_SESSION['txtUser'] = $user;
                 if($rol == 11){
-                    header('Location: ../Paneles/Administrador/PanelAdministrador.php');
+                    header("Location: ../Paneles/Administrador/PanelAdministrador.php?ID_Rol=$rol");
                     exit;
                 }else
                 if($rol == 12){
