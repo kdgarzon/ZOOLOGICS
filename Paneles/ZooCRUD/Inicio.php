@@ -34,7 +34,7 @@
                 <h1 class="titulo_logotipo">Zoologics</h1>
             </div>
             <div class="items_zoo">
-                <a href="Inicio.php">Inicio</a>
+                <a href="../ZooCRUD/Inicio.php?ID_Rol=<?php echo $rol;?>">Inicio</a>
                 <?php
                     if($rol == 1){?>
                         <a href="../Zoologicos/PanelSanDiego.php?ID_Rol=<?php echo $rol;?>">Informacion</a>
@@ -77,10 +77,11 @@
                         <?php 
                     }else
                 ?>
-                <a href="">Zoológico</a>
-                <a href="">Animales</a>
-                <a href="">Especies</a>
-                <a href="">Familias</a>
+                <a href="../ZooCRUD/InformacionZoo.php?ID_Rol=<?php echo $rol;?>">Zoológico</a>
+                <a href="../Administrador/GestionAnimales.php?ID_Rol=<?php echo $rol;?>">Animales</a>
+                <a href="../Administrador/GestionFamilias.php?ID_Rol=<?php echo $rol;?>">Familias</a>
+                <a href="../Administrador/GestionEspecies.php?ID_Rol=<?php echo $rol;?>">Especies</a>
+                <a href="../Administrador/AñadirEspecies.php?ID_Rol=<?php echo $rol;?>">Añadir Esp</a>
                 <a href="">Informes</a>
             </div>
             <div class="botones">
@@ -101,10 +102,10 @@
     <footer>
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
     </footer>
-    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
 </body>
 </html>
