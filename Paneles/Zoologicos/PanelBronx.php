@@ -10,6 +10,9 @@
         session_destroy();
         die();
     }
+
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,24 +22,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Estilos/Paneles.css">
+    <link rel="stylesheet" href="../../Estilos/PestañasZoo.css">
     <title>Inicio</title>
 </head>
 <body>
+    <?php
+        if($rol != 12){
+            include('../../config/headerZoo.php');
+        }
+    ?>
     <div class="barra_superior">
         <img src="../../Imagenes/San Diego/Imagenes zoo/bronx.jpg" alt="San Diego">
-        <div class="cont">
-            <div class="logo">
-                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
-                <h1 class="titulo_logotipo">Zoologics</h1>
-            </div>
-            <img src="../../Imagenes/Iconos/TresLineasNegras.png" alt="Barra desplegable">
-        </div>
+        <?php
+            if($rol == 12){
+                include('../../config/headerAuxiliar.php');
+            }
+        ?>
         <div class="cont_dos">
-            <h1 class="titulo_imagen">Zoológico del Bronx</h1>
-            <h3 class="apartado">
-                El zoo, que ocupa una extensión de 26 hectáreas, alberga a 2.800 animales de 300 
-                especies.
-            </h3>
+            <div class="uno">
+                <h1 class="titulo_imagen" id="titBronx">ZOOLOGICO DEL BRONX</h1>
+            </div>
+            <div class="dos">
+                <h3 class="apartado">
+                    El zoo, que ocupa una extensión de 26 hectáreas, alberga a 2.800 animales de 300 
+                    especies.
+                </h3>
+            </div>
         </div>
     </div>
     <div class="texto_cuerpo">
@@ -47,7 +59,7 @@
             ver pastar a los bisontes o escuchar a los expertos durante una charla con los 
             cuidadores, lo tenemos cubierto.
         </p>
-        <h2 class="titulos_contenido_uno">ACTIVIDADES DISPONIBLES</h2>
+        <h2 class="titulos_contenido_uno" id="actBronx">ACTIVIDADES DISPONIBLES</h2>
         <div class="cards_actividades">
             <div class="card">
                 <img src="../../Imagenes/Bronx/card1.jpg" alt="" width="561px" height="283px">
@@ -95,45 +107,46 @@
         </div>
     </div>
     <div class="galeria_animales">
-        <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
-        <div class="foto">
-            <img src="../../Imagenes/Bronx/bisonte.jpg" alt="Bisonte" width="290px" height="290px">
-            <a href="https://bronxzoo.com/things-to-do/exhibits/american-bison">Bisonte</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Bronx/oso grande.jpg" alt="Oso grande" width="290px" height="290px">
-            <a href="https://bronxzoo.com/things-to-do/exhibits/big-bears">Oso grande</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Bronx/dholes.jpg" alt="Dholes" width="290px" height="290px">
-            <a href="https://bronxzoo.com/things-to-do/exhibits/dholes">Dholes</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Bronx/Maleo.jpg" alt="Maleo" width="290px" height="290px">
-            <a href="https://es.wikipedia.org/wiki/Macrocephalon_maleo">Maleo</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Bronx/pavo ocelado.jpg" alt="Pavo Ocelado" width="290px" height="290px">
-            <a href="https://es.wikipedia.org/wiki/Meleagris_ocellata">Pavo Ocelado</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Bronx/paloma nicobar.jpg" alt="Paloma Nicobar" width="290px" height="290px">
-            <a href="https://es.wikipedia.org/wiki/Caloenas_nicobarica">Paloma Nicobar</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Bronx/zorro fenec.jpg" alt="Zorro Fenec" width="290px" height="290px">
-            <a href="https://www.nationalgeographic.es/animales/zorro-fenec">Zorro Fenec</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Bronx/rata nube.jpg" alt="Rata Nube" width="290px" height="290px">
-            <a href="https://es.wikipedia.org/wiki/Phloeomys_pallidus">Rata Nube</a>
-        </div>
+        <h2 class="titulos_contenido_tres" id="actBronx">ANIMALES MAS DESTACADOS</h2>
+        <div class="fotos">
+            <div class="foto">
+                <img src="../../Imagenes/Bronx/bisonte.jpg" alt="Bisonte" width="290px" height="290px">
+                <a href="https://bronxzoo.com/things-to-do/exhibits/american-bison">Bisonte</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Bronx/oso grande.jpg" alt="Oso grande" width="290px" height="290px">
+                <a href="https://bronxzoo.com/things-to-do/exhibits/big-bears">Oso grande</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Bronx/dholes.jpg" alt="Dholes" width="290px" height="290px">
+                <a href="https://bronxzoo.com/things-to-do/exhibits/dholes">Dholes</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Bronx/Maleo.jpg" alt="Maleo" width="290px" height="290px">
+                <a href="https://es.wikipedia.org/wiki/Macrocephalon_maleo">Maleo</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Bronx/pavo ocelado.jpg" alt="Pavo Ocelado" width="290px" height="290px">
+                <a href="https://es.wikipedia.org/wiki/Meleagris_ocellata">Pavo Ocelado</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Bronx/paloma nicobar.jpg" alt="Paloma Nicobar" width="290px" height="290px">
+                <a href="https://es.wikipedia.org/wiki/Caloenas_nicobarica">Paloma Nicobar</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Bronx/zorro fenec.jpg" alt="Zorro Fenec" width="290px" height="290px">
+                <a href="https://www.nationalgeographic.es/animales/zorro-fenec">Zorro Fenec</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Bronx/rata nube.jpg" alt="Rata Nube" width="290px" height="290px">
+                <a href="https://es.wikipedia.org/wiki/Phloeomys_pallidus">Rata Nube</a>
+            </div>
+        </div>   
     </div>
-    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
-    <footer>
+    <div class="footer">
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
-    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>

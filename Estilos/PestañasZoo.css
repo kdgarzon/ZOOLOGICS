@@ -259,6 +259,13 @@ h2{
     padding-left: 5%;
     padding-right: 5%;
 }
+#titBronx{
+    text-align: center;
+    color: #96F1AF;
+}
+#actBronx{
+    color: #299985;
+}
 
 /*CONSERVACION DE ESPECIES*/
 
