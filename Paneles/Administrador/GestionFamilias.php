@@ -37,11 +37,18 @@
     <title>Gestión de Familias</title>
 </head>
 <body>
-    <?php include '../../config/header.php';?>
+    <?php
+        if($rol == 11){
+            include '../../config/header.php';
+        }
+        if($rol != 11){
+            include '../../config/headerZoo.php';
+        }
+    ?>
     <h1 class="tituloInicial">GESTION DE FAMILIAS</h1>
     <hr class="linea">
     <div class = "EntradaDatos">
-        <form action="GestionFamilias.php" method = "POST" name = "formulario" class = "row g-3">
+        <form action="GestionFamilias.php?ID_Rol=<?=$rol?>" method = "POST" name = "formulario" class = "row g-3">
             <h2 class = "tit">Información general</h2>
             <div class="col-md-4">
                 <label for="txtFamilia" class="form-label">Familia:</label>
@@ -72,10 +79,10 @@
                         <td><?= $fila[0]; ?></td>
                         <td><?= $fila[1]; ?></td>
                         <td>
-                            <a href="ModificarFamilia.php?ID=<?= $fila[0] ?>" class="btn btn-warning">
+                            <a href="ModificarFamilia.php?ID=<?= $fila[0] ?>&ID_Rol=<?= $rol ?>" class="btn btn-warning">
                                 <img src = "../../Imagenes/Iconos/editar.png" width = "20px" height = "20px">
                             </a>
-                            <a href="GestionFamilias.php?ID=<?= $fila[0] ?>" class="btn btn-danger">
+                            <a href="GestionFamilias.php?ID=<?= $fila[0] ?>&ID_Rol=<?= $rol ?>" class="btn btn-danger">
                                 <img src = "../../Imagenes/Iconos/eliminar.png" width = "20px" height = "20px">
                             </a>
                         </td>
@@ -93,43 +100,69 @@
             // Obtengo los datos cargados en el formulario de Gestionar Familias.
             $Familia = $_POST['txtFamilia'];
 
-            //Formulo la consulta SQL
-            $sql = "INSERT INTO Familia (Familia) VALUES ('$Familia');";
+            // Verificar si la especie ya existe
+            $sqlVerificar = "SELECT COUNT(*) as count FROM Familia WHERE Familia = '$Familia'";
+            $resultadoVerificar = $link->query($sqlVerificar);
 
-            $respuesta = $link->query($sql);
-            $link->close();
+            $filaVerificar = $resultadoVerificar->fetch_assoc();
+            $cantidad = $filaVerificar['count'];
 
-            if($respuesta){
+            if ($cantidad > 0) {
+                // El nombre de la familia ya existe
                 echo "<script type='text/javascript'>
                     Swal.fire({
-                        title: '¡Datos insertados correctamente!',
+                        title: 'Advertencia',
+                        text: 'La familia ingresada ya existe en la base de datos.',
                         width: 600,
                         padding: '2em',
-                        icon: 'success',
+                        icon: 'warning',
                         showConfirmButton: false,
                         timer: 1500
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionFamilias.php';
+                        window.location.href = 'GestionFamilias.php?ID_Rol=".$rol."';
                     }, 1500);
                 </script>";
-            }else{
-                echo "<script type='text/javascript'>
-                    Swal.fire({
-                        title: 'ERROR!!',
-                        text :'Algo salió mal y los datos no pudieron ser insertados. Intente de nuevo.',
-                        width: 600,
-                        padding: '2em',
-                        icon: 'error',
-                        showConfirmButton: false,
-                        timer: 1800
-                    });
-                    setTimeout(function() {
-                        // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionFamilias.php';
-                    }, 1800);
-                </script>";
+            }else {
+                //Formulo la consulta SQL
+                $sql = "INSERT INTO Familia (Familia) VALUES ('$Familia');";
+
+                $respuesta = $link->query($sql);
+                $link->close();
+
+                if($respuesta){
+                    echo "<script type='text/javascript'>
+                        Swal.fire({
+                            title: '¡Datos insertados correctamente!',
+                            width: 600,
+                            padding: '2em',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        setTimeout(function() {
+                            // Redirige o realiza otra acción después de cerrar la alerta
+                            window.location.href = 'GestionFamilias.php?ID_Rol=".$rol."';
+                        }, 1500);
+                    </script>";
+                }else{
+                    echo "<script type='text/javascript'>
+                        Swal.fire({
+                            title: 'ERROR!!',
+                            text :'Algo salió mal y los datos no pudieron ser insertados. Intente de nuevo.',
+                            width: 600,
+                            padding: '2em',
+                            icon: 'error',
+                            showConfirmButton: false,
+                            timer: 1800
+                        });
+                        setTimeout(function() {
+                            // Redirige o realiza otra acción después de cerrar la alerta
+                            window.location.href = 'GestionFamilias.php?ID_Rol=".$rol."';
+                        }, 1800);
+                    </script>";
+                }
             }
         }
 
@@ -157,7 +190,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionFamilias.php';
+                        window.location.href = 'GestionFamilias.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }else{
@@ -173,7 +206,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionFamilias.php';
+                        window.location.href = 'GestionFamilias.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }
