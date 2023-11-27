@@ -172,7 +172,7 @@
                         });
                         setTimeout(function() {
                             // Redirige o realiza otra acción después de cerrar la alerta
-                            window.location.href = 'GestionEspecies.php';
+                            window.location.href = 'GestionEspecies.php?ID_Rol=".$rol."';
                         }, 1500);
                     </script>";  
                 }else{
@@ -188,7 +188,7 @@
                         });
                         setTimeout(function() {
                             // Redirige o realiza otra acción después de cerrar la alerta
-                            window.location.href = 'ModificarEspecie.php';
+                            window.location.href = 'ModificarEspecie.php?ID_Rol=".$rol."';
                         }, 1800);
                     </script>";
                 }
@@ -206,7 +206,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'ModificarEspecie.php';
+                        window.location.href = 'ModificarEspecie.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }

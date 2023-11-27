@@ -184,7 +184,6 @@
                     JOIN Continente c ON a.ID_Continente = c.ID
                     JOIN Zoologico z ON a.ID_Zoo = z.ID AND a.ID_Zoo = $rol
                     ORDER BY a.ID ASC";
-
                 }
 
                 $registros = $link->query($consultar);

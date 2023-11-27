@@ -38,11 +38,18 @@
     <title>Gestión de Especies</title>
 </head>
 <body>
-    <?php include '../../config/header.php';?>
+    <?php
+        if($rol == 11){
+            include '../../config/header.php';
+        }
+        if($rol != 11){
+            include '../../config/headerZoo.php';
+        }
+    ?>
     <h1 class="tituloInicial">GESTION DE ESPECIES</h1>
     <hr class="linea">
     <div class = "EntradaDatos">
-        <form action="GestionEspecies.php" method = "POST" name = "formulario" class = "row g-3">
+        <form action="GestionEspecies.php?ID_Rol=<?=$rol?>" method = "POST" name = "formulario" class = "row g-3">
             <h2 class = "tit">Información general</h2>
             <div class="col-md-6">
                 <label for="txtNomVulgar" class="form-label">Nombre vulgar:</label>
@@ -95,19 +102,36 @@
                 </select>
             </div>
             <?php
-                $sqlZoo = "SELECT ID, Nombre FROM Zoologico";
-                $Zoo = $link->query($sqlZoo);
+                if($rol == 11){ 
+                    $sqlZoo = "SELECT ID, Nombre FROM Zoologico";
+                    $Zoo = $link->query($sqlZoo); ?>
+
+                    <div class="col-md-4">
+                        <label for="listaZoo" class="form-label">Zoológico en el que se encuentra: </label>
+                        <select name="listaZoo" id="listaZoo" class="form-select" required>
+                            <option selected>Seleccionar...</option>
+                            <?php
+                            while($row_zoo = $Zoo->fetch_assoc()){ ?>
+                                <option value="<?php echo $row_zoo['ID'] ?>"><?= $row_zoo['Nombre']?></option>
+                            <?php    } ?>
+                        </select>
+                    </div>
+                <?php } else
+                if($rol != 11){ 
+                    $sqlZoo = "SELECT ID, Nombre FROM Zoologico WHERE ID=$rol";
+                    $Zoo = $link->query($sqlZoo); ?>
+                    <div class="col-md-4">
+                        <label for="listaZoo" class="form-label">Zoológico en el que se encuentra: </label>
+                        <select name="listaZoo" id="listaZoo" class="form-select" required>
+                            <option selected>Seleccionar...</option>
+                            <?php
+                            while($row_zoo = $Zoo->fetch_assoc()){ ?>
+                                <option value="<?php echo $row_zoo['ID'] ?>"><?= $row_zoo['Nombre']?></option>
+                            <?php    } ?>
+                        </select>
+                    </div>
+                <?php }
             ?>
-            <div class="col-md-4">
-                <label for="listaZoo" class="form-label">Zoológico en el que se encuentra: </label>
-                <select name="listaZoo" id="listaZoo" class="form-select" required>
-                    <option selected>Seleccionar...</option>
-                    <?php
-                    while($row_zoo = $Zoo->fetch_assoc()){ ?>
-                        <option value="<?php echo $row_zoo['ID'] ?>"><?= $row_zoo['Nombre']?></option>
-                    <?php    } ?>
-                </select>
-            </div>
             <div class="col-md-2" id = "boton">
                 <input type="submit" class = "btn" style = "background-color:#A6FB7E" value = "INSERTAR" id = "btnAgregar" name = "btnAgregar">
             </div>
@@ -130,7 +154,8 @@
                 <th>Acciones</th>
             </thead>
             <?php
-                $consultar = "SELECT esp.ID, esp.Nombre_vulgar, esp.Nombre_cientifico, nom.Especie, 
+                if($rol == 11){
+                    $consultar = "SELECT esp.ID, esp.Nombre_vulgar, esp.Nombre_cientifico, nom.Especie, 
                     f.Familia, e.Nivel_peligro, z.Nombre
                     FROM Especie esp
                     JOIN Nombre_Especie nom ON esp.ID_NomEspecie = nom.ID
@@ -138,6 +163,19 @@
                     JOIN Extincion e ON esp.ID_Extincion = e.ID
                     JOIN Zoologico z ON esp.ID_Zoo = z.ID
                     ORDER BY esp.ID ASC";
+
+                }else
+                if($rol != 11){
+                    $consultar = "SELECT esp.ID, esp.Nombre_vulgar, esp.Nombre_cientifico, nom.Especie, 
+                    f.Familia, e.Nivel_peligro, z.Nombre
+                    FROM Especie esp
+                    JOIN Nombre_Especie nom ON esp.ID_NomEspecie = nom.ID
+                    JOIN Familia f ON esp.ID_Familia = f.ID
+                    JOIN Extincion e ON esp.ID_Extincion = e.ID
+                    JOIN Zoologico z ON esp.ID_Zoo = z.ID AND esp.ID_Zoo = $rol
+                    ORDER BY esp.ID ASC";
+                }
+                
                 $registros = $link->query($consultar);
 
                 while($fila = $registros->fetch_array()){ ?>
@@ -150,10 +188,10 @@
                         <td><?= $fila[5]; ?></td>
                         <td><?= $fila[6]; ?></td>
                         <td>
-                            <a href="ModificarEspecie.php?ID=<?= $fila[0] ?>" class="btn btn-warning">
+                            <a href="ModificarEspecie.php?ID=<?= $fila[0] ?>&ID_Rol=<?= $rol ?>" class="btn btn-warning">
                                 <img src = "../../Imagenes/Iconos/editar.png" width = "20px" height = "20px">
                             </a>
-                            <a href="GestionEspecies.php?ID=<?= $fila[0] ?>" class="btn btn-danger">
+                            <a href="GestionEspecies.php?ID=<?= $fila[0] ?>&ID_Rol=<?= $rol ?>" class="btn btn-danger">
                                 <img src = "../../Imagenes/Iconos/eliminar.png" width = "20px" height = "20px">
                             </a>
                         </td>
@@ -178,7 +216,7 @@
 
             //Formulo la consulta SQL
             $sql = "INSERT INTO Especie (Nombre_vulgar, Nombre_cientifico, ID_NomEspecie, ID_Familia, ID_Extincion, ID_Zoo) 
-                VALUES ('$NomVulgar', '$NomCientifico', '$Especie', '$Familia', '$Peligro', '$Zoo');";
+                VALUES ('$NomVulgar', '$NomCientifico', $Especie, $Familia, $Peligro, $Zoo);";
 
             $respuesta = $link->query($sql);
             $link->close();
@@ -195,7 +233,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionEspecies.php';
+                        window.location.href = 'GestionEspecies.php?ID_Rol=".$rol."';
                     }, 1500);
                 </script>";
             }else{
@@ -211,7 +249,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionEspecies.php';
+                        window.location.href = 'GestionEspecies.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }
@@ -241,7 +279,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionEspecies.php';
+                        window.location.href = 'GestionEspecies.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }else{
@@ -257,7 +295,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionEspecies.php';
+                        window.location.href = 'GestionEspecies.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }
