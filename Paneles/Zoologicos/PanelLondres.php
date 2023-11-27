@@ -10,6 +10,9 @@
         session_destroy();
         die();
     }
+
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,24 +22,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Estilos/Paneles.css">
+    <link rel="stylesheet" href="../../Estilos/PestañasZoo.css">
     <title>Inicio</title>
 </head>
 <body>
+    <?php
+        if($rol != 12){
+            include('../../config/headerZoo.php');
+        }
+    ?>
     <div class="barra_superior">
         <img src="../../Imagenes/San Diego/Imagenes zoo/Londres.jpg" alt="San Diego">
-        <div class="cont">
-            <div class="logo">
-                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
-                <h1 class="titulo_logotipo">Zoologics</h1>
-            </div>
-            <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable">
-        </div>
+        <?php
+            if($rol == 12){
+                include('../../config/headerAuxiliar.php');
+            }
+        ?>
         <div class="cont_dos">
-            <h1 class="titulo_imagen">Zoológico de Londres</h1>
-            <h3 class="apartado">
-                Fundado hace casi 200 años, el Zoológico de Londres fue el primer zoológico 
-                científico del mundo. 
-            </h3>
+            <div class="uno">
+                <h1 class="titulo_imagen" id="titLondres">ZOOLOGICO DE LONDRES</h1>
+            </div>
+            <div class="dos">
+                <h3 class="apartado">
+                    Fundado hace casi 200 años, el Zoológico de Londres fue el primer zoológico 
+                    científico del mundo. 
+                </h3>
+            </div>
         </div>
     </div>
     <div class="texto_cuerpo">
@@ -57,7 +69,7 @@
             protección de los rinocerontes salvajes en África . Restaurar ecosistemas de manglares 
             en Asia y reintroducir lirones en el Reino Unido .
         </p>
-        <h2 class="titulos_contenido_uno">ACTIVIDADES DISPONIBLES</h2>
+        <h2 class="titulos_contenido_uno" id="actLondres">ACTIVIDADES DISPONIBLES</h2>
         <p class="parrafo">
             Asegúrate de visitar La vida secreta de los reptiles y anfibios cuando se abra a 
             finales de 2023 para ver las singulares ranas gallinas de montaña y descubrir cómo 
@@ -135,99 +147,102 @@
             </div>
         </div>
     </div>
-    <div class = "conservacion">
-        <h2 class="titulos_contenido_dos">PRIORIDADES DE CONSERVACION DE ESPECIES</h2>
-        <div class = "circulo_tarjeta">
-            <div class="cirImg">
-                <img src="../../Imagenes/Londres/proteger.jpg" alt="proteger" height="216px" width="216px">
+    <div class = "conservacion" id="conserLondres">
+        <h2 class="titulos_contenido_dos" id="actLondres">PRIORIDADES DE CONSERVACION DE ESPECIES</h2>
+        <div class="tarjetas">
+            <div class = "circulo_tarjeta">
+                <div class="cirImg" id="cirLondres">
+                    <img src="../../Imagenes/Londres/proteger.jpg" alt="proteger" height="216px" width="216px">
+                </div>
+                <div class="cirText" id="texLondres">
+                    <h4 class="cirTitulo">Protegiendo especies</h4>
+                    <p class="tecirculo" id="tamañoLondres">
+                        El cambio climático y la actividad humana están llevando a las especies al borde de la 
+                        extinción. Cada pérdida potencial es vital en la lucha por proteger las especies, y el 
+                        tiempo se acaba rápidamente.
+                    </p>
+                </div>
             </div>
-            <div class="cirText">
-                <h4 class="cirTitulo">Protegiendo especies</h4>
-                <p class="tecirculo">
-                    El cambio climático y la actividad humana están llevando a las especies al borde de la 
-                    extinción. Cada pérdida potencial es vital en la lucha por proteger las especies, y el 
-                    tiempo se acaba rápidamente.
-                </p>
+            <div class = "circulo_tarjeta">
+                <div class="cirImg" id="cirLondres">
+                    <img src="../../Imagenes/Londres/restaurar ecosistemas.jpg" alt="restaurar ecosistemas" height="216px" width="216px">
+                </div>
+                <div class="cirText" id="texLondres">
+                    <h4 class="cirTitulo">Restaurando ecosistemas</h4>
+                    <p class="tecirculo" id="tamañoLondres">
+                        Desde la contaminación hasta el cambio climático, la presión sobre nuestro planeta 
+                        está aumentando. Ahora, más que nunca, la naturaleza necesita nuestro apoyo.
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class = "circulo_tarjeta">
-            <div class="cirImg">
-                <img src="../../Imagenes/Londres/restaurar ecosistemas.jpg" alt="restaurar ecosistemas" height="216px" width="216px">
+            <div class = "circulo_tarjeta">
+                <div class="cirImg" id="cirLondres">
+                    <img src="../../Imagenes/Londres/vivir vida salvaje.jpg" alt="vivir vida salvaje" height="216px" width="216px">
+                </div>
+                <div class="cirText" id="texLondres">
+                    <h4 class="cirTitulo">Viviendo con la vida silvestre</h4>
+                    <p class="tecirculo" id="tamañoLondres">
+                        Al trabajar con el entorno en constante evolución, cambio y respiración que nos rodea 
+                        y responder a él, podemos crear un mundo más equilibrado.
+                    </p>
+                </div>
             </div>
-            <div class="cirText">
-                <h4 class="cirTitulo">Restaurando ecosistemas</h4>
-                <p class="tecirculo">
-                    Desde la contaminación hasta el cambio climático, la presión sobre nuestro planeta 
-                    está aumentando. Ahora, más que nunca, la naturaleza necesita nuestro apoyo.
-                </p>
+            <div class = "circulo_tarjeta">
+                <div class="cirImg" id="cirLondres">
+                    <img src="../../Imagenes/Londres/cambio isnpirador.jpg" alt="cambio isnpirador" height="216px" width="216px">
+                </div>
+                <div class="cirText" id="texLondres">
+                    <h4 class="cirTitulo">Cambio inspirador</h4>
+                    <p class="tecirculo" id="tamañoLondres">
+                        Acercamos a las personas a la naturaleza, inspirándolas a apreciar y cuidar la vida 
+                        silvestre, trabajando con comunidades para aumentar la comprensión y el apoyo a las 
+                        acciones necesarias.
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class = "circulo_tarjeta">
-            <div class="cirImg">
-                <img src="../../Imagenes/Londres/vivir vida salvaje.jpg" alt="vivir vida salvaje" height="216px" width="216px">
-            </div>
-            <div class="cirText">
-                <h4 class="cirTitulo">Viviendo con la vida silvestre</h4>
-                <p class="tecirculo">
-                    Al trabajar con el entorno en constante evolución, cambio y respiración que nos rodea 
-                    y responder a él, podemos crear un mundo más equilibrado.
-                </p>
-            </div>
-        </div>
-        <div class = "circulo_tarjeta">
-            <div class="cirImg">
-                <img src="../../Imagenes/Londres/cambio isnpirador.jpg" alt="cambio isnpirador" height="216px" width="216px">
-            </div>
-            <div class="cirText">
-                <h4 class="cirTitulo">Cambio inspirador</h4>
-                <p class="tecirculo">
-                    Acercamos a las personas a la naturaleza, inspirándolas a apreciar y cuidar la vida 
-                    silvestre, trabajando con comunidades para aumentar la comprensión y el apoyo a las 
-                    acciones necesarias.
-                </p>
-            </div>
-        </div>
+        </div>  
     </div>
     <div class="galeria_animales">
-        <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
-        <div class="foto">
-            <img src="../../Imagenes/Londres/pangolin.jpg" alt="Pangolin" width="290px" height="290px">
-            <a href="https://www.zsl.org/what-we-do/species/pangolins">Pangolin</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Londres/paloma rosada.jpg" alt="Paloma rosada" width="290px" height="290px">
-            <a href="https://www.zsl.org/what-we-do/projects/pink-pigeon-conservation">Paloma rosada</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Londres/camello salvaje.jpg" alt="Camello salvaje" width="290px" height="290px">
-            <a href="https://www.zsl.org/what-we-do/projects/conservation-of-mongolias-wild-camels">Camello salvaje</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Londres/liron avellada.jpg" alt="Lirón avellana" width="290px" height="290px">
-            <a href="https://www.zsl.org/what-we-do/species/hazel-dormouse">Lirón avellana</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Londres/sihek.jpg" alt="Sihek" width="290px" height="290px">
-            <a href="https://www.zsl.org/what-we-do/projects/sihek-conservation">Sihek</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Londres/caracol partula.jpg" alt="Caracol partula" width="290px" height="290px">
-            <a href="https://www.zsl.org/what-we-do/projects/partula-snail-conservation">Caracol partula</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Londres/alpaca.jpg" alt="Alpaca" width="290px" height="290px">
-            <a href="https://www.zsl.org/what-we-do/projects/partula-snail-conservation">Alpaca</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Londres/ayeAye.jpg" alt="AyeAyes" width="290px" height="290px">
-            <a href="https://www.londonzoo.org/whats-here/animals/aye-aye">AyeAyes</a>
-        </div>
+        <h2 class="titulos_contenido_tres" id="actLondres">ANIMALES MAS DESTACADOS</h2>
+        <div class="fotos">
+            <div class="foto">
+                <img src="../../Imagenes/Londres/pangolin.jpg" alt="Pangolin" width="290px" height="290px">
+                <a href="https://www.zsl.org/what-we-do/species/pangolins">Pangolin</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Londres/paloma rosada.jpg" alt="Paloma rosada" width="290px" height="290px">
+                <a href="https://www.zsl.org/what-we-do/projects/pink-pigeon-conservation">Paloma rosada</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Londres/camello salvaje.jpg" alt="Camello salvaje" width="290px" height="290px">
+                <a href="https://www.zsl.org/what-we-do/projects/conservation-of-mongolias-wild-camels">Camello salvaje</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Londres/liron avellada.jpg" alt="Lirón avellana" width="290px" height="290px">
+                <a href="https://www.zsl.org/what-we-do/species/hazel-dormouse">Lirón avellana</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Londres/sihek.jpg" alt="Sihek" width="290px" height="290px">
+                <a href="https://www.zsl.org/what-we-do/projects/sihek-conservation">Sihek</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Londres/caracol partula.jpg" alt="Caracol partula" width="290px" height="290px">
+                <a href="https://www.zsl.org/what-we-do/projects/partula-snail-conservation">Caracol partula</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Londres/alpaca.jpg" alt="Alpaca" width="290px" height="290px">
+                <a href="https://www.zsl.org/what-we-do/projects/partula-snail-conservation">Alpaca</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Londres/ayeAye.jpg" alt="AyeAyes" width="290px" height="290px">
+                <a href="https://www.londonzoo.org/whats-here/animals/aye-aye">AyeAyes</a>
+            </div>
+        </div>   
     </div>
-    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
-    <footer>
+    <div class="footer">
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
-    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>

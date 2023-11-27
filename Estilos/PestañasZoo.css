@@ -235,6 +235,15 @@ h2{
 #conserSchon{
     color: #B63636;
 }
+#titLondres{
+    color: #8D418E;
+}
+#actLondres{
+    color: #AE388D;
+}
+#conserLondres{/*Fondo de conservación del zoológico de Londres*/
+    background: #FBEDFF;
+}
 
 /*CONSERVACION DE ESPECIES*/
 
@@ -268,6 +277,12 @@ h2{
 #TexAux{
     border: 3px solid #A43D3D;
 }
+#cirLondres img{
+    border: 3px solid #833DA4;
+}
+#texLondres{
+    border: 3px solid #833DA4;
+}
 .cirText{
     border-radius: 50px;
     border: 3px solid #4CA43D;
@@ -295,7 +310,7 @@ h2{
     font-weight: 400;
     line-height: normal;
 }
-.cirText #parrafo_alternativo{
+.cirText #parrafo_alternativo, #tamañoLondres{
     font-size: 15px;
 }
 .circulo_tarjeta{
