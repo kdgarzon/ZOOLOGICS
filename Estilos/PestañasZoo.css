@@ -266,6 +266,18 @@ h2{
 #actBronx{
     color: #299985;
 }
+#titChapul{
+    color: #36426A;
+    font-size: 100px;
+}
+#actChapul{
+    color: #262F7B;
+}
+#conChapultepec{/*Fondo de conservacion del zoológico de Chapultepec*/
+    background: #ECFCFF;
+    padding-left: 5%;
+    padding-right: 5%;
+}
 
 /*CONSERVACION DE ESPECIES*/
 

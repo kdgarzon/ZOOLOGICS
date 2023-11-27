@@ -10,6 +10,9 @@
         session_destroy();
         die();
     }
+
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,24 +22,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Estilos/Paneles.css">
+    <link rel="stylesheet" href="../../Estilos/PestañasZoo.css">
     <title>Inicio</title>
 </head>
 <body>
+    <?php
+        if($rol != 12){
+            include('../../config/headerZoo.php');
+        }
+    ?>
     <div class="barra_superior">
         <img src="../../Imagenes/San Diego/Imagenes zoo/Chapultepec.jpg" alt="San Diego">
-        <div class="cont">
-            <div class="logo">
-                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
-                <h1 class="titulo_logotipo">Zoologics</h1>
-            </div>
-            <img src="../../Imagenes/Iconos/TresLineasBlancas.png" alt="Barra desplegable">
-        </div>
+        <?php
+            if($rol == 12){
+                include('../../config/headerAuxiliar.php');
+            }
+        ?>
         <div class="cont_dos">
-            <h1 class="titulo_imagen">Zoológico de Chapultepec</h1>
-            <h3 class="apartado">
-                Es considerado uno de los zoológicos mas visitados del mundo, al año recibe mas de 5.5 
-                millones de visitantes.
-            </h3>
+            <div class="uno">
+                <h1 class="titulo_imagen" id="titChapul">ZOOLOGICO DE CHAPULTEPEC</h1>
+            </div>
+            <div class="dos">
+                <h3 class="apartado">
+                    Es considerado uno de los zoológicos mas visitados del mundo, al año recibe mas de 5.5 
+                    millones de visitantes.
+                </h3>
+            </div>
         </div>
     </div>
     <div class="texto_cuerpo">
@@ -48,7 +60,7 @@
             que forma parte de nuestra historia, por lo que puede considerarse como el Zoológico 
             Nacional.
         </p>
-        <h2 class="titulos_contenido_uno">BIOMAS DISPONIBLES</h2>
+        <h2 class="titulos_contenido_uno" id="actChapul">BIOMAS DISPONIBLES</h2>
         <div class="cards_actividades">
             <div class="card">
                 <img src="../../Imagenes/Chapultepec/desierto.jpg" alt="" width="561px" height="283px">
@@ -88,8 +100,8 @@
             </div>
         </div>
     </div>
-    <div class = "conservacion">
-        <h2 class="titulos_contenido_dos">CONSERVACION DE ESPECIES</h2>
+    <div class = "conservacion" id="conChapultepec">
+        <h2 class="titulos_contenido_dos" id="actChapul">CONSERVACION DE ESPECIES</h2>
         <p class="parrafo">
             El Zoológico de Chapultepec está involucrado con diversos proyectos de conservación, 
             sobre todo en la reproducción en cautiverio de especies como el conejo de los volcanes, 
@@ -103,29 +115,30 @@
         </p>
     </div>
     <div class="galeria_animales">
-        <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
-        <div class="foto">
-            <img src="../../Imagenes/Chapultepec/Teporingo.jpg" alt="Teporingo" width="290px" height="290px">
-            <a href="https://www.nationalgeographicla.com/animales/2020/04/teporingo-o-conejo-de-los-volcanes">Teporingo</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Chapultepec/ocelote.jpg" alt="Ocelote" width="290px" height="290px">
-            <a href="https://colombia.inaturalist.org/taxa/41997-Leopardus-pardalis">Ocelote</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Chapultepec/cebra de grevy.jpg" alt="Cebra de Grevy" width="290px" height="290px">
-            <a href="https://www.nationalgeographicla.com/animales/cebra-de-grevy">Cebra de Grevy</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Chapultepec/lobo mexicano.jpg" alt="Lobo mexicano" width="290px" height="290px">
-            <a href="https://www.nationalgeographic.es/animales/lobo-mexicano">Lobo mexicano</a>
+        <h2 class="titulos_contenido_tres" id="actChapul">ANIMALES MAS DESTACADOS</h2>
+        <div class="fotos">
+            <div class="foto">
+                <img src="../../Imagenes/Chapultepec/Teporingo.jpg" alt="Teporingo" width="290px" height="290px">
+                <a href="https://www.nationalgeographicla.com/animales/2020/04/teporingo-o-conejo-de-los-volcanes">Teporingo</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Chapultepec/ocelote.jpg" alt="Ocelote" width="290px" height="290px">
+                <a href="https://colombia.inaturalist.org/taxa/41997-Leopardus-pardalis">Ocelote</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Chapultepec/cebra de grevy.jpg" alt="Cebra de Grevy" width="290px" height="290px">
+                <a href="https://www.nationalgeographicla.com/animales/cebra-de-grevy">Cebra de Grevy</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Chapultepec/lobo mexicano.jpg" alt="Lobo mexicano" width="290px" height="290px">
+                <a href="https://www.nationalgeographic.es/animales/lobo-mexicano">Lobo mexicano</a>
+            </div>
         </div>
     </div>
-    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
-    <footer>
+    <div class="footer">
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
-    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>
