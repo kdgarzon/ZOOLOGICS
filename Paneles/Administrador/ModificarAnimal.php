@@ -187,7 +187,7 @@
                         });
                         setTimeout(function() {
                             // Redirige o realiza otra acción después de cerrar la alerta
-                            window.location.href = 'GestionAnimales.php';
+                            window.location.href = 'GestionAnimales.php?ID_Rol=".$rol."';
                         }, 1500);
                     </script>";  
                 }else{
@@ -203,7 +203,7 @@
                         });
                         setTimeout(function() {
                             // Redirige o realiza otra acción después de cerrar la alerta
-                            window.location.href = 'ModificarAnimal.php';
+                            window.location.href = 'ModificarAnimal.php?ID_Rol=".$rol."';
                         }, 1800);
                     </script>";
                 }
