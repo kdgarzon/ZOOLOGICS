@@ -10,6 +10,9 @@
         session_destroy();
         die();
     }
+
+    $rol = isset($_SESSION['ID_Rol']) ? $_SESSION['ID_Rol'] : "";
+    $_SESSION['ID_Rol'] = $rol;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,24 +22,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Estilos/Paneles.css">
+    <link rel="stylesheet" href="../../Estilos/PestañasZoo.css">
     <title>Inicio</title>
 </head>
 <body>
+    <?php
+        if($rol != 12){
+            include('../../config/headerZoo.php');
+        }
+    ?>
     <div class="barra_superior">
         <img src="../../Imagenes/San Diego/Imagenes zoo/Schonbrunn.jpg" alt="San Diego">
-        <div class="cont">
-            <div class="logo">
-                <img src="../../Imagenes/Iconos/tucan.png" alt="Logo" width="40px" height="40px" class="d-inline-block align-text-top">
-                <h1 class="titulo_logotipo">Zoologics</h1>
-            </div>
-            <img src="../../Imagenes/Iconos/TresLineasNegras.png" alt="Barra desplegable">
-        </div>
+        <?php
+            if($rol == 12){
+                include('../../config/headerAuxiliar.php');
+            }
+        ?>
         <div class="cont_dos">
-            <h1 class="titulo_imagen">Zoológico de Schonbrunn</h1>
-            <h3 class="apartado">
-                Distribuidos en un sitio de 17 hectáreas, los visitantes pueden ver 700 especies 
-                diferentes, algunas de ellas en peligro de extinción.
-            </h3>
+            <div class="uno">
+                <h1 class="titulo_imagen" id="titPrinSchon">ZOOLOGICO DE SCHONBRUNN</h1>
+            </div>
+            <div class="dos">
+                <h3 class="apartado">
+                    Distribuidos en un sitio de 17 hectáreas, los visitantes pueden ver 700 especies 
+                    diferentes, algunas de ellas en peligro de extinción.
+                </h3>
+            </div>
         </div>
     </div>
     <div class="texto_cuerpo">
@@ -49,7 +61,7 @@
             tiempo que promueve la conservación y la biodiversidad. El atractivo especial del 
             zoológico proviene de su encanto imperial.
         </p>
-        <h2 class="titulos_contenido_uno">ACTIVIDADES DISPONIBLES</h2>
+        <h2 class="titulos_contenido_uno" id="actSchon">ACTIVIDADES DISPONIBLES</h2>
         <p class="parrafo">
             Más allá de la educación, la recreación y la investigación, la conservación de la 
             naturaleza y la protección de las especies se encuentran entre las principales 
@@ -98,88 +110,90 @@
             </div>
         </div>
     </div>
-    <div class = "conservacion">
-        <h2 class="titulos_contenido_dos">CONSERVACION DE ESPECIES</h2>
-        <div class = "circulo_tarjeta">
-            <div class="cirImg">
-                <img src="../../Imagenes/Schonbrunn/cria.jpg" alt="Islas del pacifico" height="216px" width="216px">
+    <div class = "conservacion" id="fondoCon">
+        <h2 class="titulos_contenido_dos" id="conserSchon">CONSERVACION DE ESPECIES</h2>
+        <div class="tarjetas">
+            <div class = "circulo_tarjeta">
+                <div class="cirImg" id="cirAux">
+                    <img src="../../Imagenes/Schonbrunn/cria.jpg" alt="Islas del pacifico" height="216px" width="216px">
+                </div>
+                <div class="cirText" id="TexAux">
+                    <h4 class="cirTitulo">Cría en cautividad</h4>
+                    <p class="tecirculo" id="parrafo_alternativo">
+                        Estamos comprometidos a brindar el más alto nivel de atención no solo a nuestros 
+                        animales sino también a la vida silvestre rescatada.
+                    </p>
+                </div>
             </div>
-            <div class="cirText">
-                <h4 class="cirTitulo">Cría en cautividad</h4>
-                <p class="tecirculo">
-                    Estamos comprometidos a brindar el más alto nivel de atención no solo a nuestros 
-                    animales sino también a la vida silvestre rescatada.
-                </p>
+            <div class = "circulo_tarjeta">
+                <div class="cirImg" id="cirAux">
+                    <img src="../../Imagenes/Schonbrunn/proteccion.jpg" alt="Sur oeste" height="216px" width="216px">
+                </div>
+                <div class="cirText" id="TexAux">
+                    <h4 class="cirTitulo">Protección de especies</h4>
+                    <p class="tecirculo" id="parrafo_alternativo">
+                        La protección de especies se encuentra entre las principales misiones de un zoológico 
+                        gestionado científicamente. Por eso el zoológico, participa en proyectos de 
+                        conservación de la naturaleza.
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class = "circulo_tarjeta">
-            <div class="cirImg">
-                <img src="../../Imagenes/Schonbrunn/proteccion.jpg" alt="Sur oeste" height="216px" width="216px">
+            <div class = "circulo_tarjeta">
+                <div class="cirImg" id="cirAux">
+                    <img src="../../Imagenes/Schonbrunn/Investigacion.jpg" alt="Amazonia" height="216px" width="216px">
+                </div>
+                <div class="cirText" id="TexAux">
+                    <h4 class="cirTitulo">Proyectos de investigación</h4>
+                    <p class="tecirculo" id="parrafo_alternativo">
+                        Contribuye en el bienestar animal, la conservación de la naturaleza y la protección 
+                        de las especies. Nos esforzamos por contribuir al aumento del conocimiento científico 
+                        en estos campos.
+                    </p>
+                </div>
             </div>
-            <div class="cirText">
-                <h4 class="cirTitulo">Protección de especies</h4>
-                <p class="tecirculo">
-                    La protección de especies se encuentra entre las principales misiones de un zoológico 
-                    gestionado científicamente. Por eso el zoológico, participa en proyectos de 
-                    conservación de la naturaleza.
-                </p>
-            </div>
-        </div>
-        <div class = "circulo_tarjeta">
-            <div class="cirImg">
-                <img src="../../Imagenes/Schonbrunn/Investigacion.jpg" alt="Amazonia" height="216px" width="216px">
-            </div>
-            <div class="cirText">
-                <h4 class="cirTitulo">Proyectos de investigación</h4>
-                <p class="tecirculo">
-                    Contribuye en el bienestar animal, la conservación de la naturaleza y la protección 
-                    de las especies. Nos esforzamos por contribuir al aumento del conocimiento científico 
-                    en estos campos.
-                </p>
-            </div>
-        </div>
-        <img src="../../Imagenes/Schonbrunn/opcional.jpg" alt="">
+        </div>    
     </div>
     <div class="galeria_animales">
-        <h2 class="titulos_contenido_tres">ANIMALES MAS DESTACADOS</h2>
-        <div class="foto">
-            <img src="../../Imagenes/Schonbrunn/panda gigante.jpg" alt="Panda Gigante" width="290px" height="290px">
-            <a href="https://www.zoovienna.at/en/natur-und-artenschutz/giant-panda-needs-our-help/">Panda Gigante</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Schonbrunn/ibis calvo.jpg" alt="Ibis calvo" width="290px" height="290px">
-            <a href="https://www.zoovienna.at/en/natur-und-artenschutz/bald-ibis-species-protection-project/">Ibis calvo</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Schonbrunn/batagur.jpg" alt="Batagur" width="290px" height="290px">
-            <a href="https://www.zoovienna.at/en/natur-und-artenschutz/batagur-river-terrapin-species-protection-project/">Batagur</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Schonbrunn/danta.jpg" alt="Danta" width="290px" height="290px">
-            <a href="https://www.zoovienna.at/en/natur-und-artenschutz/brazilian-tapir-species-protection-project/">Danta</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Schonbrunn/quebrantahuesos.jpg" alt="Quebrantahuesos" width="290px" height="290px">
-            <a href="https://www.zoovienna.at/en/natur-und-artenschutz/bearded-vulture-species-protection-project/">Quebrantahuesos</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Schonbrunn/alimoche.jpg" alt="Alimoche" width="290px" height="290px">
-            <a href="https://www.zoovienna.at/en/natur-und-artenschutz/egyptian-vulture-species-protection-program/">Alimoche</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Schonbrunn/codorniz.jpg" alt="Codorniz" width="290px" height="290px">
-            <a href="https://www.zoovienna.at/en/natur-und-artenschutz/corncrake-species-protection-project/">Codorniz</a>
-        </div>
-        <div class="foto">
-            <img src="../../Imagenes/Schonbrunn/salamandra.jpg" alt="Salamandra" width="290px" height="290px">
-            <a href="https://www.zoovienna.at/en/natur-und-artenschutz/salamander-species-protection-project/">Salamandra</a>
-        </div>
+        <h2 class="titulos_contenido_tres" id="conserSchon">ANIMALES MAS DESTACADOS</h2>
+        <div class="fotos">
+            <div class="foto">
+                <img src="../../Imagenes/Schonbrunn/panda gigante.jpg" alt="Panda Gigante" width="290px" height="290px">
+                <a href="https://www.zoovienna.at/en/natur-und-artenschutz/giant-panda-needs-our-help/">Panda Gigante</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Schonbrunn/ibis calvo.jpg" alt="Ibis calvo" width="290px" height="290px">
+                <a href="https://www.zoovienna.at/en/natur-und-artenschutz/bald-ibis-species-protection-project/">Ibis calvo</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Schonbrunn/batagur.jpg" alt="Batagur" width="290px" height="290px">
+                <a href="https://www.zoovienna.at/en/natur-und-artenschutz/batagur-river-terrapin-species-protection-project/">Batagur</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Schonbrunn/danta.jpg" alt="Danta" width="290px" height="290px">
+                <a href="https://www.zoovienna.at/en/natur-und-artenschutz/brazilian-tapir-species-protection-project/">Danta</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Schonbrunn/quebrantahuesos.jpg" alt="Quebrantahuesos" width="290px" height="290px">
+                <a href="https://www.zoovienna.at/en/natur-und-artenschutz/bearded-vulture-species-protection-project/">Quebrantahuesos</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Schonbrunn/alimoche.jpg" alt="Alimoche" width="290px" height="290px">
+                <a href="https://www.zoovienna.at/en/natur-und-artenschutz/egyptian-vulture-species-protection-program/">Alimoche</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Schonbrunn/codorniz.jpg" alt="Codorniz" width="290px" height="290px">
+                <a href="https://www.zoovienna.at/en/natur-und-artenschutz/corncrake-species-protection-project/">Codorniz</a>
+            </div>
+            <div class="foto">
+                <img src="../../Imagenes/Schonbrunn/salamandra.jpg" alt="Salamandra" width="290px" height="290px">
+                <a href="https://www.zoovienna.at/en/natur-und-artenschutz/salamander-species-protection-project/">Salamandra</a>
+            </div>
+        </div>    
     </div>
-    <!--<a href="../../config/CerrarSesion.php">Cerrar sesión</a>-->
 
-    <footer>
+    <div class="footer">
         <p>&copy;2023. Todos los derechos reservados. Elaborado por Karen Garzon :)</p>
-    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>

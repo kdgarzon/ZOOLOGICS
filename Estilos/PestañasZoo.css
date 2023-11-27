@@ -222,6 +222,19 @@ h2{
 #titLoroParque{
     color: #A1F8F2;
 }
+#titPrinSchon{/*Titulo de la cabecera de la página del zoológico de Schonbrunn*/
+    font-size: 100px;
+    color: #C65252;
+}
+#actSchon{
+    color: #D14343;
+}
+#fondoCon{/*Fondo conservación de especies del zoológico de Schonbrunn*/
+    background: #FFEFF3;
+}
+#conserSchon{
+    color: #B63636;
+}
 
 /*CONSERVACION DE ESPECIES*/
 
@@ -246,7 +259,14 @@ h2{
     border: 3px solid #4CA43D;
     position: absolute;
     display: flex;
+    object-fit: cover;
     /*order: -1;*/
+}
+#cirAux img{
+    border: 3px solid #A43D3D;
+}
+#TexAux{
+    border: 3px solid #A43D3D;
 }
 .cirText{
     border-radius: 50px;
@@ -275,6 +295,9 @@ h2{
     font-weight: 400;
     line-height: normal;
 }
+.cirText #parrafo_alternativo{
+    font-size: 15px;
+}
 .circulo_tarjeta{
     position: relative;
     break-inside: avoid-column; /* Evita que una tarjeta se divida entre columnas */
@@ -290,7 +313,7 @@ h2{
     border-radius: 30px;
     object-fit: cover;
 }
-.conservacion img{
+#conToronto img{
     width: 100%;
     object-fit: cover;
     margin-bottom: 2%;
