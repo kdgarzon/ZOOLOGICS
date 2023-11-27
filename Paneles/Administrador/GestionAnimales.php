@@ -38,19 +38,26 @@
     <title>Gestión de Animales</title>
 </head>
 <body>
-    <?php include '../../config/header.php';?>
+    <?php
+        if($rol == 11){
+            include '../../config/header.php';
+        }
+        if($rol != 11){
+            include '../../config/headerZoo.php';
+        }
+    ?>
     <h1 class="tituloInicial">GESTION DE ANIMALES</h1>
     <hr class="linea">
     <div class = "EntradaDatos">
-        <form action="GestionAnimales.php" method = "POST" name = "formulario" class = "row g-3">
+        <form action="GestionAnimales.php?ID_Rol=<?=$rol?>" method = "POST" name = "formulario" class = "row g-3">
             <h2 class = "tit">Información general</h2>
             <?php
                 $sqlEspecies = "SELECT ID, Especie FROM Nombre_Especie";
                 $Especies = $link->query($sqlEspecies);
             ?>
             <div class="col-md-6">
-                <label for="listaEspecie" class="form-label">Especie del animal: </label>
-                <select name="listaEspecie" id="listaEspecie" class="form-select" required>
+                <label for="listaEspecies" class="form-label">Especie del animal: </label>
+                <select name="listaEspecies" id="listaEspecies" class="form-select" required>
                     <option selected>Seleccionar...</option>
                     <?php
                     while($row_esp = $Especies->fetch_assoc()){ ?>
@@ -105,19 +112,41 @@
                 <input type="number" class="form-control" placeholder="Año de nacimiento..." id="txtAnioNacimiento" name="txtAnioNacimiento" required>
             </div>
             <?php
-                $sqlZoo = "SELECT ID, Nombre FROM Zoologico";
-                $Zoo = $link->query($sqlZoo);
+                /*$sqlZoo = "SELECT ID, Nombre FROM Zoologico";
+                $Zoo = $link->query($sqlZoo);*/
             ?>
-            <div class="col-md-4">
-                <label for="listaZoo" class="form-label">Zoológico al que pertenece: </label>
-                <select name="listaZoo" id="listaZoo" class="form-select" required>
-                    <option selected>Seleccionar...</option>
-                    <?php
-                    while($row_zoo = $Zoo->fetch_assoc()){ ?>
-                        <option value="<?php echo $row_zoo['ID'] ?>"><?= $row_zoo['Nombre']?></option>
-                    <?php    } ?>
-                </select>
-            </div>
+            <?php
+                if($rol == 11){ 
+                    $sqlZoo = "SELECT ID, Nombre FROM Zoologico";
+                    $Zoo = $link->query($sqlZoo); ?>
+
+                    <div class="col-md-4">
+                        <label for="listaZoo" class="form-label">Zoológico al que pertenece: </label>
+                        <select name="listaZoo" id="listaZoo" class="form-select" required>
+                            <option selected>Seleccionar...</option>
+                            <?php
+                            while($row_zoo = $Zoo->fetch_assoc()){ ?>
+                                <option value="<?php echo $row_zoo['ID'] ?>"><?= $row_zoo['Nombre']?></option>
+                            <?php    } ?>
+                        </select>
+                    </div>
+                <?php } else
+                if($rol != 11){ 
+                    $sqlZoo = "SELECT ID, Nombre FROM Zoologico WHERE ID=$rol";
+                    $Zoo = $link->query($sqlZoo); ?>
+                    <div class="col-md-4">
+                        <label for="listaZoo" class="form-label">Zoológico al que pertenece: </label>
+                        <select name="listaZoo" id="listaZoo" class="form-select" required>
+                            <option selected>Seleccionar...</option>
+                            <?php
+                            while($row_zoo = $Zoo->fetch_assoc()){ ?>
+                                <option value="<?php echo $row_zoo['ID'] ?>"><?= $row_zoo['Nombre']?></option>
+                            <?php    } ?>
+                        </select>
+                    </div>
+                    
+                <?php }
+            ?>
             <div class="col-md-2" id = "boton">
                 <input type="submit" class = "btn" style = "background-color:#A6FB7E" value = "INSERTAR" id = "btnAgregar" name = "btnAgregar">
             </div>
@@ -140,7 +169,8 @@
                 <th>Acciones</th>
             </thead>
             <?php
-                $consultar = "SELECT a.ID, esp.Especie, s.Sexo, a.Anio_Nacimiento, p.Pais, c.Continente, z.Nombre
+                if($rol == 11){
+                    $consultar = "SELECT a.ID, esp.Especie, s.Sexo, a.Anio_Nacimiento, p.Pais, c.Continente, z.Nombre
                     FROM Animal a
                     JOIN Nombre_Especie esp ON a.ID_Especie = esp.ID
                     JOIN Sexo s ON a.ID_Sexo = s.ID
@@ -148,6 +178,20 @@
                     JOIN Continente c ON a.ID_Continente = c.ID
                     JOIN Zoologico z ON a.ID_Zoo = z.ID
                     ORDER BY a.ID ASC";
+
+                }else
+                if($rol != 11){
+                    $consultar = "SELECT a.ID, esp.Especie, s.Sexo, a.Anio_Nacimiento, p.Pais, c.Continente, z.Nombre
+                    FROM Animal a
+                    JOIN Nombre_Especie esp ON a.ID_Especie = esp.ID
+                    JOIN Sexo s ON a.ID_Sexo = s.ID
+                    JOIN Pais p ON a.ID_Pais = p.ID
+                    JOIN Continente c ON a.ID_Continente = c.ID
+                    JOIN Zoologico z ON a.ID_Zoo = z.ID AND a.ID_Zoo = $rol
+                    ORDER BY a.ID ASC";
+
+                }
+
                 $registros = $link->query($consultar);
 
                 while($fila = $registros->fetch_array()){ ?>
@@ -160,15 +204,19 @@
                         <td><?= $fila[5]; ?></td>
                         <td><?= $fila[6]; ?></td>
                         <td>
-                            <a href="ModificarAnimal.php?ID=<?= $fila[0] ?>" class="btn btn-warning">
+                            <a href="ModificarAnimal.php?ID=<?= $fila[0] ?>&ID_Rol=<?= $rol ?>" class="btn btn-warning">
                                 <img src = "../../Imagenes/Iconos/editar.png" width = "20px" height = "20px">
                             </a>
-                            <a href="GestionAnimales.php?ID=<?= $fila[0] ?>" class="btn btn-danger">
+                            <a href="GestionAnimales.php?ID=<?= $fila[0] ?>&ID_Rol=<?= $rol ?>" class="btn btn-danger">
                                 <img src = "../../Imagenes/Iconos/eliminar.png" width = "20px" height = "20px">
                             </a>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php } 
+                if (!$registros) {
+                    echo "Error en la consulta SQL: " . $link->error;
+                }
+                ?>
         </table>
     </div>
     <footer>
@@ -177,7 +225,7 @@
     <?php
         //INSERTAR DATOS
         if(isset($_POST['btnAgregar'])){
-            
+            echo "El boton Agregar funciona";
             // Obtengo los datos cargados en el formulario de Gestionar Animales.
             $Especie = $_POST['listaEspecies'];
             $Sexo = $_POST['listaSexo'];
@@ -188,7 +236,7 @@
 
             //Formulo la consulta SQL
             $sql = "INSERT INTO Animal (ID_Especie, ID_Sexo, Anio_Nacimiento, ID_Pais, ID_Continente, ID_Zoo) 
-                VALUES ('$Especie', '$Sexo', '$Nacimiento', '$Pais', '$Continente', '$Zoo');";
+                VALUES ($Especie, $Sexo, $Nacimiento, $Pais, $Continente, $Zoo);";
 
             $respuesta = $link->query($sql);
             $link->close();
@@ -205,7 +253,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionAnimales.php';
+                        window.location.href = 'GestionAnimales.php?ID_Rol=".$rol."';
                     }, 1500);
                 </script>";
             }else{
@@ -221,7 +269,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionAnimales.php';
+                        window.location.href = 'GestionAnimales.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }
@@ -251,7 +299,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionAnimales.php';
+                        window.location.href = 'GestionAnimales.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }else{
@@ -267,7 +315,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionAnimales.php';
+                        window.location.href = 'GestionAnimales.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }
