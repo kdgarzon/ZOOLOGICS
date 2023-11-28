@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost&family=Knewave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Jost:wght@400;500;600;700&family=Luckiest+Guy&family=McLaren&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -30,4 +31,110 @@
     font-style: normal;
     font-weight: 400;
     margin-left: 20px;
+}
+
+/*PESTAÑA DE INFORMACION EN PANEL DE ADMINISTRADOR*/
+
+.tituloInicial{
+    color: #1E6277;
+    text-shadow: 0px 7px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 80px;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.general{
+    margin-left: 9%;
+    margin-right: 9%;
+}
+.lineaTitulo{
+    width: 50%;
+    height: 5px;
+    background: #269445;
+    opacity: 1;
+    margin-left: 25%;
+    margin-bottom: 3%;
+    border: #269445;
+}
+.imagen-zoo img{
+    border-radius: 20px;
+    object-fit: cover;
+}
+.contenido-zoo h2{
+    font-family: 'Caveat Brush', cursive;
+    font-size: 50px;
+    text-align: center;
+}
+.texto{
+    text-align: justify;
+    font-family: 'McLaren', sans-serif;
+    font-size: 20px;
+    line-height: 170.457%; /* 34.091px */
+}
+.linea_divisora{
+    width: 100%;
+    height: 3px;
+    background: #49F0AA;
+    opacity: 1;
+    border: #49F0AA;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.numero h1{
+    color: #FDFDFD;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 55px;
+    text-align: center;
+}
+.numero{
+    border-radius: 50px;
+    width: 62px;
+    height: 62px;
+}
+.numeral{
+    display: flex;
+    margin-bottom: 1.5%;
+}
+.vista{
+    display: flex;
+    margin-bottom: 2%;
+}
+#derecho{
+    margin-left: 6%;
+    margin-top: 2%;
+}
+#izquierdo{
+    margin-right: 6%;
+    margin-top: 2%;
+}
+.numeral p{
+    margin-left: 2%;
+    width: 80%;
+}
+
+footer{
+    position: absolute;
+    background-color: #5E4646;
+    width: 100%;
+    height: 27px;
+}
+footer p{
+    color: #FFF;
+    font-family: 'Jost', sans-serif;
+}
+
+/*COLORES DE LETRA DE LOS ZOOLOGICOS*/
+
+#SanDiego{
+    color: #46A59F;
+}
+#Singapur{
+    color: #988D28;
+}
+#verde{/*Color de circulos*/
+    background: #4BE063;
+}
+#amarillo{
+    background: #C19E21;
 }
