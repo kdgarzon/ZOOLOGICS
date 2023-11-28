@@ -83,6 +83,7 @@
                     <?php    } ?>
                 </select>
             </div>
+            <input type="hidden" name="rolAux" id="rolAux" value="<?= $rol ?>">
             <div class="col-md-2" id = "boton">
                 <input type="submit" class = "btn" style = "background-color:#A6FB7E" value = "INSERTAR" id = "btnAgregar" name = "btnAgregar">
             </div>
@@ -123,10 +124,10 @@
                         <td><?= $fila[6]; ?></td>
                         <td><?= $fila[7]; ?></td>
                         <td>
-                            <a href="ModificarUser.php?ID=<?= $fila[0] ?>" class="btn btn-warning">
+                            <a href="ModificarUser.php?ID=<?= $fila[0] ?>&ID_Rol=<?= $rol ?>" class="btn btn-warning">
                                 <img src = "../../Imagenes/Iconos/editar.png" width = "20px" height = "20px">
                             </a>
-                            <a href="GestionUsuarios.php?ID=<?= $fila[0] ?>" class="btn btn-danger">
+                            <a href="GestionUsuarios.php?ID=<?= $fila[0] ?>&ID_Rol=<?= $rol ?>" class="btn btn-danger">
                                 <img src = "../../Imagenes/Iconos/eliminar.png" width = "20px" height = "20px">
                             </a>
                         </td>
@@ -149,45 +150,78 @@
             $Contra = $_POST['txtPass'];
             $Correo = $_POST['txtCorreo'];
             $Rol = $_POST['listaRoles'];
+            $aux = $_POST['rolAux'];
 
-            //Formulo la consulta SQL
-            $sql = "INSERT INTO Usuario (Identificacion, Nombre, Apellido, Correo, User, Pass, ID_Rol) 
-                VALUES ('$Identificacion', '$Nom', '$Ape', '$Correo', '$Usu', '$Contra', '$Rol');";
+            // Verificar si el usuario ya existe
+            $sqlVerificar = "SELECT COUNT(*) as count 
+                FROM Usuario 
+                WHERE Identificacion = $Identificacion
+                AND Nombre = '$Nom' AND Apellido = '$Ape'
+                AND Correo = '$Correo' AND User = '$Usu'
+                AND Pass = '$Contra' AND ID_Rol = $Rol;";
 
-            $respuesta = $link->query($sql);
-            $link->close();
+            $resultadoVerificar = $link->query($sqlVerificar);
 
-            if($respuesta){
+            $filaVerificar = $resultadoVerificar->fetch_assoc();
+            $cantidad = $filaVerificar['count'];
+
+            if ($cantidad > 0) {
+                // El usuario ya existe
                 echo "<script type='text/javascript'>
                     Swal.fire({
-                        title: '¡Datos insertados correctamente!',
+                        title: 'Advertencia',
+                        text: 'El usuario ingresado ya existe en la base de datos.',
                         width: 600,
                         padding: '2em',
-                        icon: 'success',
+                        icon: 'warning',
                         showConfirmButton: false,
                         timer: 1500
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionUsuarios.php';
+                        window.location.href = 'GestionUsuarios.php?ID_Rol=".$aux."';
                     }, 1500);
                 </script>";
             }else{
-                echo "<script type='text/javascript'>
-                    Swal.fire({
-                        title: 'ERROR!!',
-                        text :'Algo salió mal y los datos no pudieron ser insertados. Intente de nuevo.',
-                        width: 600,
-                        padding: '2em',
-                        icon: 'error',
-                        showConfirmButton: false,
-                        timer: 1800
-                    });
-                    setTimeout(function() {
-                        // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionUsuarios.php';
-                    }, 1800);
-                </script>";
+                //Formulo la consulta SQL
+                $sql = "INSERT INTO Usuario (Identificacion, Nombre, Apellido, Correo, User, Pass, ID_Rol) 
+                    VALUES ($Identificacion, '$Nom', '$Ape', '$Correo', '$Usu', '$Contra', $Rol);";
+
+                $respuesta = $link->query($sql);
+                $link->close();
+
+                if($respuesta){
+                    echo "<script type='text/javascript'>
+                        Swal.fire({
+                            title: '¡Datos insertados correctamente!',
+                            width: 600,
+                            padding: '2em',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        setTimeout(function() {
+                            // Redirige o realiza otra acción después de cerrar la alerta
+                            window.location.href = 'GestionUsuarios.php?ID_Rol=".$aux."';
+                        }, 1500);
+                    </script>";
+                }else{
+                    echo "<script type='text/javascript'>
+                        Swal.fire({
+                            title: 'ERROR!!',
+                            text :'Algo salió mal y los datos no pudieron ser insertados. Intente de nuevo.',
+                            width: 600,
+                            padding: '2em',
+                            icon: 'error',
+                            showConfirmButton: false,
+                            timer: 1800
+                        });
+                        setTimeout(function() {
+                            // Redirige o realiza otra acción después de cerrar la alerta
+                            window.location.href = 'GestionUsuarios.php?ID_Rol=".$aux."';
+                        }, 1800);
+                    </script>";
+                }
             }
         }
 
@@ -215,7 +249,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionUsuarios.php';
+                        window.location.href = 'GestionUsuarios.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }else{
@@ -231,7 +265,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionUsuarios.php';
+                        window.location.href = 'GestionUsuarios.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }
