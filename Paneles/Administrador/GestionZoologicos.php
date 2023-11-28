@@ -83,6 +83,7 @@
                 <label for="txtPresupuesto" class="form-label">Presupuesto anual (dólares): </label>
                 <input type="number" class="form-control" placeholder="Presupuesto anual..." id="txtPresupuesto" name="txtPresupuesto" required>
             </div>
+            <input type="hidden" name="rolAux" id="rolAux" value="<?= $rol ?>">
             <div class="col-md-2" id = "boton">
                 <input type="submit" class = "btn" style = "background-color:#A6FB7E" value = "INSERTAR" id = "btnAgregar" name = "btnAgregar">
             </div>
@@ -120,10 +121,10 @@
                         <td><?= number_format($fila[4]); ?></td>
                         <td><?= number_format($fila[5]); ?></td>
                         <td>
-                            <a href="ModificarZoo.php?ID=<?= $fila[0] ?>" class="btn btn-warning" style = "margin-right:7px;">
+                            <a href="ModificarZoo.php?ID=<?= $fila[0] ?>&ID_Rol=<?= $rol ?>" class="btn btn-warning" style = "margin-right:7px;">
                                 <img src = "../../Imagenes/Iconos/editar.png" width = "20px" height = "20px">
                             </a>
-                            <a href="GestionZoologicos.php?ID=<?= $fila[0] ?>" class="btn btn-danger">
+                            <a href="GestionZoologicos.php?ID=<?= $fila[0] ?>&ID_Rol=<?= $rol ?>" class="btn btn-danger">
                                 <img src = "../../Imagenes/Iconos/eliminar.png" width = "20px" height = "20px">
                             </a>
                         </td>
@@ -144,46 +145,79 @@
             $Ciudad = $_POST['listaCiudad'];
             $Tam = $_POST['txtTamanio'];
             $Dinero = $_POST['txtPresupuesto'];
+            $aux = $_POST['rolAux'];
 
-            //Formulo la consulta SQL
-            $sql = "INSERT INTO Zoologico (Nombre, ID_Ciudad, ID_Pais, Tamanio, Presupuesto_anual) 
-                VALUES ('$Zoo', '$Ciudad', '$Pais', '$Tam', '$Dinero');";
+            // Verificar si el usuario ya existe
+            $sqlVerificar = "SELECT COUNT(*) as count 
+                FROM Zoologico 
+                WHERE Nombre = '$Zoo'
+                AND ID_Ciudad = $Ciudad AND ID_Pais = $Pais
+                AND Tamanio = $Tam AND Presupuesto_anual = $Dinero;";
 
-            $respuesta = $link->query($sql);
-            $link->close();
+            $resultadoVerificar = $link->query($sqlVerificar);
 
-            if($respuesta){
+            $filaVerificar = $resultadoVerificar->fetch_assoc();
+            $cantidad = $filaVerificar['count'];
+
+            if ($cantidad > 0) {
+                // El zoológico ya existe
                 echo "<script type='text/javascript'>
                     Swal.fire({
-                        title: '¡Datos insertados correctamente!',
+                        title: 'Advertencia',
+                        text: 'El zoológico ingresado ya existe en la base de datos.',
                         width: 600,
                         padding: '2em',
-                        icon: 'success',
+                        icon: 'warning',
                         showConfirmButton: false,
                         timer: 1500
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionZoologicos.php';
+                        window.location.href = 'GestionZoologicos.php?ID_Rol=".$aux."';
                     }, 1500);
                 </script>";
             }else{
-                echo "<script type='text/javascript'>
-                    Swal.fire({
-                        title: 'ERROR!!',
-                        text :'Algo salió mal y los datos no pudieron ser insertados. Intente de nuevo.',
-                        width: 600,
-                        padding: '2em',
-                        icon: 'error',
-                        showConfirmButton: false,
-                        timer: 1800
-                    });
-                    setTimeout(function() {
-                        // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionZoologicos.php';
-                    }, 1800);
-                </script>";
+                //Formulo la consulta SQL
+                $sql = "INSERT INTO Zoologico (Nombre, ID_Ciudad, ID_Pais, Tamanio, Presupuesto_anual) 
+                    VALUES ('$Zoo', $Ciudad, $Pais, $Tam, $Dinero);";
+
+                $respuesta = $link->query($sql);
+                $link->close();
+
+                if($respuesta){
+                    echo "<script type='text/javascript'>
+                        Swal.fire({
+                            title: '¡Datos insertados correctamente!',
+                            width: 600,
+                            padding: '2em',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        setTimeout(function() {
+                            // Redirige o realiza otra acción después de cerrar la alerta
+                            window.location.href = 'GestionZoologicos.php?ID_Rol=".$aux."';
+                        }, 1500);
+                    </script>";
+                }else{
+                    echo "<script type='text/javascript'>
+                        Swal.fire({
+                            title: 'ERROR!!',
+                            text :'Algo salió mal y los datos no pudieron ser insertados. Intente de nuevo.',
+                            width: 600,
+                            padding: '2em',
+                            icon: 'error',
+                            showConfirmButton: false,
+                            timer: 1800
+                        });
+                        setTimeout(function() {
+                            // Redirige o realiza otra acción después de cerrar la alerta
+                            window.location.href = 'GestionZoologicos.php?ID_Rol=".$aux."';
+                        }, 1800);
+                    </script>";
+                }
             }
+
         }
 
         //ELIMINAR DATOS
@@ -210,7 +244,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionZoologicos.php';
+                        window.location.href = 'GestionZoologicos.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }else{
@@ -226,7 +260,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'GestionZoologicos.php';
+                        window.location.href = 'GestionZoologicos.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }

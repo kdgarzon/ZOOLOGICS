@@ -29,6 +29,8 @@
 
     $rol = (isset($_GET['ID_Rol'])?$_GET['ID_Rol']:"");
     $_SESSION['ID_Rol'] = $rol;
+
+    echo $rol;
 ?>
 
 <!DOCTYPE html>
@@ -121,6 +123,7 @@
                 $Pais = $_POST['listaPais'];
                 $Tam = $_POST['txtTamanio'];
                 $Pre = $_POST['txtPresupuesto'];
+                $aux = $_POST['rolAux'];
 
                 $sql_actualizar = "UPDATE Zoologico 
                 SET Nombre = '$zoo', ID_Ciudad = $Ciu, ID_Pais = $Pais, Tamanio = $Tam, Presupuesto_anual = $Pre 
@@ -139,7 +142,7 @@
                         });
                         setTimeout(function() {
                             // Redirige o realiza otra acción después de cerrar la alerta
-                            window.location.href = 'GestionZoologicos.php';
+                            window.location.href = 'GestionZoologicos.php?ID_Rol=".$rol."';
                         }, 1500);
                     </script>";  
                 }else{
@@ -155,7 +158,7 @@
                         });
                         setTimeout(function() {
                             // Redirige o realiza otra acción después de cerrar la alerta
-                            window.location.href = 'ModificarZoo.php';
+                            window.location.href = 'ModificarZoo.php?ID_Rol=".$rol."';
                         }, 1800);
                     </script>";
                 }
@@ -173,7 +176,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'ModificarZoo.php';
+                        window.location.href = 'ModificarZoo.php?ID_Rol=".$rol."';
                     }, 1800);
                 </script>";
             }
