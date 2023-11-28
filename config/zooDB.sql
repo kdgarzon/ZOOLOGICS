@@ -33,6 +33,33 @@ CREATE TABLE Usuario(
     FOREIGN KEY (ID_Rol) REFERENCES Rol(ID) ON UPDATE CASCADE ON DELETE SET NULL
 ) AUTO_INCREMENT = 1001;
 
+/*TRIGGER PARA RESPALDAR DATOS DE USUARIO*/
+
+CREATE TABLE RespaldoUsuarios (
+    ID_Respaldo int(4) NOT NULL AUTO_INCREMENT,
+    ID_Usuario int(4),
+    Identificacion int(10),
+    Nombre varchar(40),
+    Apellido varchar(40),
+    Correo varchar(40),
+    User varchar(20),
+    Pass varchar(50),
+    ID_Rol int(3),
+    FechaEliminacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (ID_Respaldo)
+);
+
+DELIMITER //
+CREATE TRIGGER respaldo_usuario
+AFTER DELETE ON Usuario
+FOR EACH ROW
+BEGIN
+    INSERT INTO RespaldoUsuarios (ID_Usuario, Identificacion, Nombre, Apellido, Correo, User, Pass, ID_Rol)
+    VALUES (OLD.ID, OLD.Identificacion, OLD.Nombre, OLD.Apellido, OLD.Correo, OLD.User, OLD.Pass, OLD.ID_Rol);
+END;
+//
+DELIMITER ;
+
 INSERT INTO Usuario (Identificacion, Nombre, Apellido, Correo, User, Pass, ID_Rol) VALUES (1010526347, 'Sofia', 'Goméz', 'sogomez@gmail.com','sogomez', 'sg123', 1);/*1001*/
 INSERT INTO Usuario (Identificacion, Nombre, Apellido, Correo, User, Pass, ID_Rol) VALUES (1191764758, 'Mateo', 'Rodríguez', 'marodriguez@gmail.com', 'marodriguez', 'mr123', 2);/*1002*/
 INSERT INTO Usuario (Identificacion, Nombre, Apellido, Correo, User, Pass, ID_Rol) VALUES (1064076947, 'Valentina', 'García', 'vagarcia@gmail.com','vagarcia', 'vg123', 3);/*1003*/
@@ -249,6 +276,31 @@ CREATE TABLE Zoologico(
     FOREIGN KEY (ID_Pais) REFERENCES Pais(ID) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
+/*TRIGGER PARA EL RESPALDO DE DATOS DE ZOOLOGICO*/
+
+CREATE TABLE RespaldoZoo (
+    ID_Respaldo int(3) NOT NULL AUTO_INCREMENT,
+    ID_Zoologico int(3),
+    Nombre varchar(60),
+    ID_Ciudad int(3),
+    ID_Pais int(3),
+    Tamanio int(10),
+    Presupuesto_anual float(10),
+    FechaEliminacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (ID_Respaldo)
+);
+
+DELIMITER //
+CREATE TRIGGER respaldo_zoologico
+AFTER DELETE ON Zoologico
+FOR EACH ROW
+BEGIN
+    INSERT INTO RespaldoZoo (ID_Zoologico, Nombre, ID_Ciudad, ID_Pais, Tamanio, Presupuesto_anual)
+    VALUES (OLD.ID, OLD.Nombre, OLD.ID_Ciudad, OLD.ID_Pais, OLD.Tamanio, OLD.Presupuesto_anual);
+END;
+//
+DELIMITER ;
+
 INSERT INTO Zoologico (Nombre, ID_Ciudad, ID_Pais, Tamanio, Presupuesto_anual) VALUES ('Zoologico de San Diego', 236, 325, 7284342, 407000000);/*1*/
 INSERT INTO Zoologico (Nombre, ID_Ciudad, ID_Pais, Tamanio, Presupuesto_anual) VALUES ('Zoologico de Singapur', 243, 357, 280000, 100000000); /*2*/
 INSERT INTO Zoologico (Nombre, ID_Ciudad, ID_Pais, Tamanio, Presupuesto_anual) VALUES ('Zoologico de Toronto', 245, 314, 2870000, 778250);/*3*/
@@ -265,6 +317,27 @@ CREATE TABLE Familia(
     Familia varchar(25) NOT NULL,
     PRIMARY KEY (ID)
 );
+
+/*TRIGGER PARA RESPALDAR LOS DATOS DE FAMILIA*/
+
+CREATE TABLE RespaldoFamilia (
+    ID_Respaldo int(5) NOT NULL AUTO_INCREMENT,
+    ID_Familia int(5),
+    Familia varchar(25),
+    FechaEliminacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (ID_Respaldo)
+);
+
+DELIMITER //
+CREATE TRIGGER respaldo_familia
+AFTER DELETE ON Familia
+FOR EACH ROW
+BEGIN
+    INSERT INTO RespaldoFamilia (ID_Familia, Familia)
+    VALUES (OLD.ID, OLD.Familia);
+END;
+//
+DELIMITER ;
 
 INSERT INTO Familia (Familia) VALUES ('Ambystomatidae');/*1*/
 INSERT INTO Familia (Familia) VALUES ('Accipitridae');/*2*/
@@ -356,6 +429,27 @@ CREATE TABLE Nombre_Especie(
     Especie varchar(35) NOT NULL, 
     PRIMARY KEY (ID)
 );
+
+/*TRIGGER PARA RESPALDAR DATOS DE NOMBRE DE ESPECIES*/
+
+CREATE TABLE RespaldoNomEspecie (
+    ID_Respaldo int(5) NOT NULL AUTO_INCREMENT,
+    ID_Especie int(5),
+    Especie varchar(35),
+    FechaEliminacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (ID_Respaldo)
+);
+
+DELIMITER //
+CREATE TRIGGER respaldo_nombre_especie
+AFTER DELETE ON Nombre_Especie
+FOR EACH ROW
+BEGIN
+    INSERT INTO RespaldoNomEspecie (ID_Especie, Especie)
+    VALUES (OLD.ID, OLD.Especie);
+END;
+//
+DELIMITER ;
 
 INSERT INTO Nombre_Especie (Especie) VALUES ('Ambystoma');/*1*/
 INSERT INTO Nombre_Especie (Especie) VALUES ('Acinonys Jubatus');/*2*/
@@ -466,6 +560,31 @@ CREATE TABLE Especie(
     FOREIGN KEY (ID_Extincion) REFERENCES Extincion(ID) ON UPDATE CASCADE ON DELETE SET NULL,
     FOREIGN KEY (ID_Zoo) REFERENCES Zoologico(ID) ON UPDATE CASCADE ON DELETE SET NULL
 );
+
+/*TRIGGER PARA EL RESPALDO DE DATOS DE ESPECIE*/
+
+CREATE TABLE RespaldoEspecie (
+    ID_Respaldo int(5) NOT NULL AUTO_INCREMENT,
+    Nombre_vulgar varchar(35),
+    Nombre_cientifico varchar(35),
+    ID_NomEspecie int(5),
+    ID_Familia int(5),
+    ID_Extincion int(3),
+    ID_Zoo int(3),
+    FechaEliminacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (ID_Respaldo)
+);
+
+DELIMITER //
+CREATE TRIGGER respaldo_especie
+AFTER DELETE ON Especie
+FOR EACH ROW
+BEGIN
+    INSERT INTO RespaldoEspecie (Nombre_vulgar, Nombre_cientifico, ID_NomEspecie, ID_Familia, ID_Extincion, ID_Zoo)
+    VALUES (OLD.Nombre_vulgar, OLD.Nombre_cientifico, OLD.ID_NomEspecie, OLD.ID_Familia, OLD.ID_Extincion, OLD.ID_Zoo);
+END;
+//
+DELIMITER ;
 
 INSERT INTO Especie (Nombre_vulgar, Nombre_cientifico, ID_NomEspecie, ID_Familia, ID_Extincion, ID_Zoo)
     VALUES ('Ajolote', 'Ambystoma mexicanum', 1, 1, 405, 6);
@@ -696,6 +815,31 @@ CREATE TABLE Animal(
     FOREIGN KEY (ID_Continente) REFERENCES Continente(ID) ON UPDATE CASCADE ON DELETE SET NULL,
     FOREIGN KEY (ID_Zoo) REFERENCES Zoologico(ID) ON UPDATE CASCADE ON DELETE SET NULL
 );
+
+/*TRIGGER PARA EL RESPALDO DE DATOS DE ANIMAL*/
+
+CREATE TABLE RespaldoAnimal (
+    ID_Respaldo int(5) NOT NULL AUTO_INCREMENT,
+    ID_Especie int(5),
+    ID_Sexo int(3),
+    Anio_Nacimiento int(4),
+    ID_Pais int(3),
+    ID_Continente int(3),
+    ID_Zoo int(3),
+    FechaEliminacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (ID_Respaldo)
+);
+
+DELIMITER //
+CREATE TRIGGER respaldo_animal
+AFTER DELETE ON Animal
+FOR EACH ROW
+BEGIN
+    INSERT INTO RespaldoAnimal (ID_Especie, ID_Sexo, Anio_Nacimiento, ID_Pais, ID_Continente, ID_Zoo)
+    VALUES (OLD.ID_Especie, OLD.ID_Sexo, OLD.Anio_Nacimiento, OLD.ID_Pais, OLD.ID_Continente, OLD.ID_Zoo);
+END;
+//
+DELIMITER ;
 
 INSERT INTO Animal (ID_Especie, ID_Sexo, Anio_Nacimiento, ID_Pais, ID_Continente, ID_Zoo) VALUES (1, 502, 2015, 343, 602, 6);
 INSERT INTO Animal (ID_Especie, ID_Sexo, Anio_Nacimiento, ID_Pais, ID_Continente, ID_Zoo) VALUES (2, 502, 2021, 325, 602, 1);
