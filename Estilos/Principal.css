@@ -125,15 +125,26 @@
     height: 100vh;
     object-fit: cover;
 }
-.btnVisitar{
+/*.btnVisitar{
     border-radius: 50px;
-    background-color: #9ADF63;
+    background: #9ADF63;
     width: 247px;
     height: 65px;
     color: white;
     border: none;
     text-align: center;
     padding: 10px 20px;
+}*/
+.btnVisitar a{
+    color: #5C561A;
+    font-family: Lacquer;
+    font-size: 26px;
+    background: #9ADF63;
+    border-radius: 50px;
+    padding: 10px 20px;
+    position: absolute;
+    margin-top: 35%;
+    margin-left: 22%;
 }
 footer{
     position: fixed;
