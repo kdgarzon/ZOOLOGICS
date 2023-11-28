@@ -63,3 +63,45 @@ footer p{
     color: #FFF;
     font-family: 'Jost', sans-serif;
 }
+
+/* FORMATO DE DATOS PERSONALES DEL ZOOLOGICO*/
+
+#imagenDatos img{
+    width: 80%;
+    height: 85%;
+    margin-left: 1%;
+}
+.datos{
+    display: flex;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
+}
+.bodyOpcional{
+    background: url("../../Imagenes/San Diego/Imagenes login/fondo.jpg");
+}
+.filaDatos{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-bottom: 8.5%;
+}
+.filaDatos label{
+    font-size: 18px;
+}
+#datosPersonales{
+    margin-right: 5%;
+}
+.contenidoDatos{
+    background: #F0F0F0;
+    padding-right: 1%;
+    padding-left: 1%;
+    padding-top: 8%;
+}
+.encabezadoDatos h2{
+    border-radius: 20px 20px 0px 0px;
+    background: #309AA9;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
