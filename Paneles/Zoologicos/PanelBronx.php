@@ -24,6 +24,8 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="../../Estilos/Paneles.css">
     <link rel="stylesheet" href="../../Estilos/PestañasZoo.css">
+    <link rel="stylesheet" href="../../Estilos/estilos.css">
+    <link rel="stylesheet" href="../../Estilos/Tablas.css">
     <title>Inicio</title>
 </head>
 <body>
