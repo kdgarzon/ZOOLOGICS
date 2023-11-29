@@ -20,6 +20,40 @@
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
     <title>Reporte de gestión</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
+        table, tbody, tr, td{
+            border: 1px solid #9D9C9C;
+        }
+        h1{
+            color: #46A59F;
+            font-family: 'Caveat Brush';
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 400;
+            text-align: center;
+        }
+        th, tr, td, p{
+            color: #000;
+            text-align: justify;
+            font-family: 'McLaren', sans-serif;
+            font-size: 16px;
+        }
+        td, th{
+            padding: 10px;
+            text-align: center;
+        }
+        .zoo{
+            background: #98FB98;
+        }
+        .celda{
+            background: #EFEFEF;
+        }
+        .indice{
+            background: #D1FFC8;
+        }
+    </style>
 </head>
 <body>
     <?php 
@@ -34,35 +68,30 @@
 
         while($fila = $registros->fetch_array()){           
     ?>
-
+    <div class="encabezadoDocumento">
+        <h1>Informe general del zoológico</h1>
+    </div>
     <table class="table">
-        <thead>
-            <td colspan="6">
-                <div class="encabezadoDocumento">
-                    <h1>Informe general del zoológico</h1>
-                </div>
-            </td>
-        </thead>
         <tbody>
             <tr>
-                <th scope="row" colspan="3">Nombre del Zoológico: </th>
-                <td colspan="3"><?= $fila[1]; ?></td>
+                <th scope="row" colspan="3" class="zoo">Nombre del Zoológico: </th>
+                <td colspan="3" class="celda"><?= $fila[1]; ?></td>
             </tr>
             <tr>
-                <th scope="row" colspan="3">Ciudad: </th>
-                <td colspan="3"><?= $fila[2]; ?></td>
+                <th scope="row" colspan="3" class="zoo">Ciudad: </th>
+                <td colspan="3" class="celda"><?= $fila[2]; ?></td>
             </tr>
             <tr>
-                <th scope="row" colspan="3">País: </th>
-                <td colspan="3"><?= $fila[3]; ?></td>
+                <th scope="row" colspan="3" class="zoo">País: </th>
+                <td colspan="3" class="celda"><?= $fila[3]; ?></td>
             </tr>
             <tr>
-                <th scope="row" colspan="3">Tamaño en metros cuadrados: </th>
-                <td colspan="3"><?= number_format($fila[4]); ?></td>
+                <th scope="row" colspan="3" class="zoo">Tamaño en metros cuadrados: </th>
+                <td colspan="3" class="celda"><?= number_format($fila[4]); ?></td>
             </tr>
             <tr>
-                <th scope="row" colspan="3">Presupuesto anual (dólares): </th>
-                <td colspan="3"><?= number_format($fila[5]); ?></td>
+                <th scope="row" colspan="3" class="zoo">Presupuesto anual (dólares): </th>
+                <td colspan="3" class="celda"><?= number_format($fila[5]); ?></td>
             </tr>
         </tbody>
     </table>
@@ -85,22 +114,22 @@
     </div>
     <table class="table">
         <thead>
-            <th>ID</th>
-            <th>Nombre Vulgar</th>
-            <th>Nombre científico</th>
-            <th>Especie</th>
-            <th>Familia</th>
-            <th>Nivel de peligro</th>
+            <th class="zoo">ID</th>
+            <th class="zoo">Nombre Vulgar</th>
+            <th class="zoo">Nombre científico</th>
+            <th class="zoo">Especie</th>
+            <th class="zoo">Familia</th>
+            <th class="zoo">Nivel de peligro</th>
         </thead>
         <tbody>
             <?php while($esp = $regSQLdos->fetch_array()){?>
             <tr>
-                <th scope="row"><?= $esp[0]; ?></th>
-                <td><?= $esp[1]; ?></td>
-                <td><?= $esp[2]; ?></td>
-                <td><?= $esp[3]; ?></td>
-                <td><?= $esp[4]; ?></td>
-                <td><?= $esp[5]; ?></td>
+                <th scope="row" class="indice"><?= $esp[0]; ?></th>
+                <td class="celda"><?= $esp[1]; ?></td>
+                <td class="celda"><?= $esp[2]; ?></td>
+                <td class="celda"><?= $esp[3]; ?></td>
+                <td class="celda"><?= $esp[4]; ?></td>
+                <td class="celda"><?= $esp[5]; ?></td>
             </tr>
             <?php }   ?>
         </tbody>
@@ -123,22 +152,22 @@
     </div>
     <table class="table">
         <thead>
-            <th>ID</th>
-            <th>Especie</th>
-            <th>Sexo</th>
-            <th>Año de nacimiento</th>
-            <th>País</th>
-            <th>Continente</th>
+            <th class="zoo">ID</th>
+            <th class="zoo">Especie</th>
+            <th class="zoo">Sexo</th>
+            <th class="zoo">Año de nacimiento</th>
+            <th class="zoo">País</th>
+            <th class="zoo">Continente</th>
         </thead>
         <tbody>
             <?php while($ani = $regSQLtres->fetch_array()){?>
             <tr>
-                <th scope="row"><?= $ani[0]; ?></th>
-                <td><?= $ani[1]; ?></td>
-                <td><?= $ani[2]; ?></td>
-                <td><?= $ani[3]; ?></td>
-                <td><?= $ani[4]; ?></td>
-                <td><?= $ani[5]; ?></td>
+                <th scope="row" class="indice"><?= $ani[0]; ?></th>
+                <td class="celda"><?= $ani[1]; ?></td>
+                <td class="celda"><?= $ani[2]; ?></td>
+                <td class="celda"><?= $ani[3]; ?></td>
+                <td class="celda"><?= $ani[4]; ?></td>
+                <td class="celda"><?= $ani[5]; ?></td>
             </tr>
             <?php }   ?>
         </tbody>
@@ -161,7 +190,7 @@
 
     $dompdf->loadHtml($html);
     //$dompdf->setPaper('A4', 'landscape');
-    $dompdf->setPaper('letter');
+    $dompdf->setPaper('letter', 'landscape');
 
     $dompdf->render();
     $dompdf->stream("reporte.pdf", array("Attachment" => false));
