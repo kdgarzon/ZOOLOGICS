@@ -82,7 +82,7 @@
                 <a href="../Administrador/GestionFamilias.php?ID_Rol=<?php echo $rol;?>">Familias</a>
                 <a href="../Administrador/GestionEspecies.php?ID_Rol=<?php echo $rol;?>">Especies</a>
                 <a href="../Administrador/AñadirEspecies.php?ID_Rol=<?php echo $rol;?>">Añadir Esp</a>
-                <a href="">Informes</a>
+                <a href="../Reportes/InterfazReportes.php?ID_Rol=<?php echo $rol;?>">Informes</a>
             </div>
             <div class="botones">
                 <div class="btn_ingresar">

@@ -80,7 +80,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" style = "color:#FFF" id = "item">Informes</a>
+                        <a class="nav-link" href="../Reportes/InterfazReportes.php?ID_Rol=<?php echo $rol;?>" style = "color:#FFF" id = "item">Informes</a>
                     </li>
                 </ul>
                 <form class="float-sm-end" role="cerrarSesion" method="POST" action="../../config/CerrarSesion.php">

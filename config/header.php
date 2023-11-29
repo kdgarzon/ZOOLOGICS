@@ -41,6 +41,9 @@
                             <li><a class="dropdown-item" href="GestionFamilias.php?ID_Rol=<?php echo $rol;?>">Gestión de familias</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Reportes/InterfazReportes.php?ID_Rol=<?php echo $rol;?>" style = "color:#FFF" id = "item">Informes</a>
+                    </li>
                 </ul>
                 <form class="float-sm-end" role="cerrarSesion" method="POST" action="../../config/CerrarSesion.php">
                     <button class="navbar-brand d-flex btn" type="submit" id = "boton" style = "background-color:#ECD172">
