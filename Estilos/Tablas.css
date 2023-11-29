@@ -70,6 +70,7 @@ footer p{
     width: 80%;
     height: 85%;
     margin-left: 1%;
+    object-fit: cover;
 }
 .datos{
     display: flex;
