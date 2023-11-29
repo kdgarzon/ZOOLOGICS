@@ -37,7 +37,14 @@
     <title>Gestión de zoológicos</title>
 </head>
 <body>
-    <?php include '../../config/header.php';?>
+    <?php
+        if($rol == 11){
+            include '../../config/header.php';
+        }
+        if($rol != 11){
+            include '../../config/headerZoo.php';
+        }
+    ?>
     <h1 class="tituloInicial">INFORMES DISPONIBLES</h1>
     <hr class="linea">
     <div class = "informacion">
