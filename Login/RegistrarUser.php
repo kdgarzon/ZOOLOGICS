@@ -121,7 +121,7 @@
                         });
                         setTimeout(function() {
                             // Redirige o realiza otra acción después de cerrar la alerta
-                            window.location.href = 'Login.html';
+                            window.location.href = 'login.php';
                         }, 1500);
                     </script>";
                 }else{
@@ -153,7 +153,7 @@
                     });
                     setTimeout(function() {
                         // Redirige o realiza otra acción después de cerrar la alerta
-                        window.location.href = 'Login.html';
+                        window.location.href = 'login.php';
                     }, 1800);
                 </script>";
             }
